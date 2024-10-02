@@ -25,6 +25,12 @@ export const AuthPage = () => {
     } else {
       console.log("Signup submitted:", { username, email, password });
     }
+
+    // Reset form fields
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
   };
 
   return (
@@ -33,18 +39,16 @@ export const AuthPage = () => {
         <h2>{isLogin ? "Login" : "Sign Up"}</h2>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={handleSubmit} className="auth-form">
-          {!isLogin && (
-            <div className="form-group">
-              <label htmlFor="username">Username:</label>
-              <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </div>
-          )}
+          <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
 
           {!isLogin && (
             <div className="form-group">

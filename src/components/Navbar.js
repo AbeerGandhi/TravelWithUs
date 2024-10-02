@@ -45,7 +45,7 @@ export const Navbar = () => {
           </ul>
         </li>
         <li id="drop">
-        <Link to="/locations" id="d">Feedbacks</Link>
+        <Link to="/feedback" id="d">Feedbacks</Link>
           
         </li>
         <li><Link to="/auth">Login / Sign Up</Link></li>

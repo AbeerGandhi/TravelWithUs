@@ -5,6 +5,7 @@ import { Contact } from "./pages/Contact";
 import { ServicesPage } from "./pages/ServicesPage";
 import { AuthPage } from "./components/AuthPage";
 import { Locations } from "./pages/Locations";
+import { FeedbackPage } from "./pages/FeedbackPage";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -30,6 +31,7 @@ function App() {
           <Route path="/servicesPage" element={<ServicesPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/feedback" element={<FeedbackPage />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/locations/dubai" element={<Dubai />} />
           <Route path="/locations/himachal" element={<Himachal />} />

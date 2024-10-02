@@ -5,17 +5,17 @@ export const Services = () => {
   const serviceInfoRow1 = [
     {
       header: "Best Flights",
-      info: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maioresquis ullam possimus, maxime rerum aspernatur!",
+      info: "Lorem ipsum, dolor sit a met consectetur adipisicing elit. Maioresquis ullam possimus, maxime rerum aspernatur!",
       icon: "fas fa-plane-departure",
     },
     {
       header: "Best deals",
-      info: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maioresquis ullam possimus, maxime rerum aspernatur!",
+      info: "Lorem ipsum, dolor sit a met consectetur adipisicing elit. Maioresquis ullam possimus, maxime rerum aspernatur!",
       icon: "fas fa-rupee-sign",
     },
     {
       header: "Railway Bookings",
-      info: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maioresquis ullam possimus, maxime rerum aspernatur!",
+      info: "Lorem ipsum, dolor sit am et consectetur adipisicing elit. Maioresquis ullam possimus, maxime rerum aspernatur!",
       icon: "fas fa-subway",
     },
   ];

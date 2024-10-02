@@ -20,15 +20,16 @@
   .auth-container h2 {
     font-size: 2.2rem;
     color: #fff;
+    
   }
   
   .auth-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    align-items: stretch; /* Ensure all elements take up full width */
+    gap: 1.2rem;
+    align-items:stretch; /* Ensure all elements take up full width */
+    width: 100%;
   }
-  
   .form-group {
     display: flex;
     flex-direction: column;
