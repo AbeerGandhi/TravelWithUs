@@ -1,0 +1,29 @@
+.review-section {
+  height: 85vh;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-flow: column;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7); /* Dark background for better contrast */
+}
+
+.review-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: "Urbanist", sans-serif;
+  outline: none;
+  resize: none; /* Disable textarea resizing */
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 1rem; /* Space between items */
+}
