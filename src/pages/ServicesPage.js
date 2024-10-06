@@ -3,16 +3,16 @@ import "./servicesPage.css";
 
 export const ServicesPage = () => {
   const [placeType, setPlaceType] = useState("");
-  const [season, setSeason] = useState("");
+  const [climaticCondition, setClimaticCondition] = useState("");
   const [budget, setBudget] = useState("");
   const [searchResult, setSearchResult] = useState(null);
 
   const handleSearch = (e) => {
     e.preventDefault();
 
-    if (placeType && season && budget) {
+    if (placeType && climaticCondition && budget) {
       // Handle search logic here (currently mock result)
-      setSearchResult(`Searching for a ${placeType} place to visit during ${season} with a ${budget} budget.`);
+      setSearchResult(`Searching for a ${placeType} place to visit during ${climaticCondition} conditions with a ${budget} budget.`);
     } else {
       alert("Please fill out all fields to proceed.");
     }
@@ -26,31 +26,42 @@ export const ServicesPage = () => {
         <form onSubmit={handleSearch} className="search-form">
           <div className="form-group">
             <label htmlFor="placeType">Type of Place</label>
-            <input
-              type="text"
+            <select
               id="placeType"
               value={placeType}
               onChange={(e) => setPlaceType(e.target.value)}
-              placeholder="E.g., Beach, Mountain, City"
-              required
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="season">Preferred Season</label>
-            <select
-              id="season"
-              value={season}
-              onChange={(e) => setSeason(e.target.value)}
               required
             >
               <option value="" disabled>
-                Select Season
+                Select Type of Place
               </option>
-              <option value="Summer">Summer</option>
-              <option value="Winter">Winter</option>
-              <option value="Spring">Spring</option>
-              <option value="Autumn">Autumn</option>
+              <option value="Beach">Beach</option>
+              <option value="Mountain">Mountain</option>
+              <option value="Historical">Historical</option>
+              <option value="Place of God">Place of God</option>
+              <option value="Religious">Religious</option>
+              <option value="Cultural">Cultural</option>
+              <option value="Desert">Desert</option>
+              <option value="City Life">City Life</option>
+              <option value="Hill Station">Hill Station</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="climaticCondition">Climatic Conditions</label>
+            <select
+              id="climaticCondition"
+              value={climaticCondition}
+              onChange={(e) => setClimaticCondition(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Select Climatic Condition
+              </option>
+              <option value="Tropical">Tropical</option>
+              <option value="Cold">Cold</option>
+              <option value="Desert">Desert</option>
+              <option value="Temperate">Temperate</option>
             </select>
           </div>
 
