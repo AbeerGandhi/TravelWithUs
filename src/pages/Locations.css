@@ -1,43 +1,100 @@
-.package-container {
-  margin-top: 3rem;
-  margin-left: 0.5rem;
-  height: auto;
-  min-height: 200vh;
-}
-.package-container h2 {
-  padding: 2rem;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  font-weight: 300;
-  font-family: "Montserrat", sans-serif;
+/* General container styling */
+.location-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.row1,
-.row2 {
+/* Searchbox styling */
+.searchbox-container {
   display: flex;
-  gap: 5%;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 2rem;
-  height: auto;
+  margin-bottom: 30px;
 }
-.p-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5%;
-  justify-content: center;
-  align-items: center;
+
+.searchbox-container input[type="text"] {
+  width: 50%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
-@media only screen and (max-width: 600px){
-  .row1,
-  .row2 {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+
+.searchbox-container input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+/* Package cards grid layout */
+.package-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Individual package card styling */
+.package-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.package-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Image inside the card */
+.package-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Card content */
+.package-card-content {
+  padding: 15px;
+}
+
+.package-card-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.package-card-content p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.package-card-content .price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .searchbox-container input[type="text"] {
+    width: 80%;
   }
-  .row1 .card,
-  .row2 .card {
-    width: 55%;
+}
+
+@media (max-width: 576px) {
+  .package-card-content h3 {
+    font-size: 1rem;
+  }
+
+  .package-card-content p {
+    font-size: 0.8rem;
+  }
+
+  .package-card-content .price {
+    font-size: 0.9rem;
   }
 }
