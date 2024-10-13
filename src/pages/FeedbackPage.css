@@ -1,0 +1,133 @@
+.feedback-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem 0;
+    overflow-y: auto; /* Allows scrolling if the page content is long */
+  }
+  
+  .feedback-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 39px 17px rgba(0, 0, 0, 0.8);
+    color: white;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem; /* Space between form and feedback section */
+  }
+  
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .form-group label {
+    font-size: 1.0rem;
+    color: #fff;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.4rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #54ab6d;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  .feedback-btn {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    background-color: #54ab6d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .feedback-btn:hover {
+    background-color: #3c8b53;
+  }
+  
+  .user-feedback-section {
+    margin-top: 3rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .user-feedback-section h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .feedback-list {
+    display: flex; /* This makes the feedback items appear in a horizontal row */
+    justify-content: center; /* Align the items to the center */
+    gap: 2rem; /* Space between each feedback item */
+    flex-wrap: wrap; /* Ensure responsiveness by wrapping items on smaller screens */
+  }
+  
+  .feedback-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 250px;
+    text-align: center;
+  }
+  
+  .feedback-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .feedback-info h3 {
+    color: white;
+    margin: 0;
+  }
+  
+  .feedback-location {
+    color: #92e3a9;
+    font-size: 0.9rem;
+  }
+  
+  .feedback-text {
+    color: white;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .feedback-rating {
+    color: #ffd700;
+    font-size: 1.2rem;
+  }
+  
