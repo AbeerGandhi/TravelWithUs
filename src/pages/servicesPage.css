@@ -1,0 +1,93 @@
+.services-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+  }
+  
+  .services-page .content {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 39px 17px rgba(0, 0, 0, 0.8);
+    color: white;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .services-page h3 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  
+  .services-page p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .search-form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    gap: 1.5rem; /* Space between form groups */
+    width: 100%; /* Ensure it takes full width */
+  }
+  
+  .search-form .form-group {
+    display: flex;
+    flex-direction: column; /* Keep labels and inputs stacked */
+    align-items: stretch; /* Stretch inputs to fill container */
+  }
+  
+  .search-form .form-group label {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+  
+  .search-form .form-group input,
+  .search-form .form-group select {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    width: 100%; /* Set full width for inputs */
+    max-width: none; /* Remove max-width restriction */
+  }
+  
+  .search-form .form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .search-form .form-group select option {
+    background: #000;
+    color: white;
+  }
+  
+  .search-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #54ab6d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background-color: #37474f;
+  }
+  
+  .search-result {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    color: #92e3a9;
+  }
+  

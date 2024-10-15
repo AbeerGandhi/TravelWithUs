@@ -1,0 +1,47 @@
+.servcard {
+  padding: 2rem;
+  width: 30%; /* Adjust width based on your layout */
+  color: hsl(229, 23%, 23%); /* Ensure the text color contrasts well with the background */
+  font-family: "Urbanist", sans-serif;
+  background-color: #fff; /* Add background color for contrast */
+  border-radius: 10px; /* Round the corners of the card */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some shadow for depth */
+  transition: transform 0.3s ease; /* Smooth scaling on hover */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+}
+
+.servcard:hover {
+  transform: scale(1.05); /* Slightly scale the card on hover */
+}
+
+.servcard .img {
+  font-size: 2rem;
+  color: #92e3a9; /* Icon color */
+  text-align: center;
+  margin-bottom: 1rem; /* Add some space below the icon */
+}
+
+.servcard .serv-name {
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: hsl(229, 23%, 23%); /* Ensure name color contrasts with background */
+}
+
+.servcard .txt p {
+  text-align: center;
+  color: hsl(229, 23%, 40%); /* Slightly lighter color for description */
+  font-size: 1rem; /* Set a clear font size */
+  line-height: 1.5; /* Improve readability */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .servcard {
+    width: 80%; /* Full width on smaller screens */
+    margin-bottom: 1rem; /* Add space between cards */
+  }
+}

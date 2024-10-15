@@ -1,0 +1,46 @@
+.package-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+  padding: 16px;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility */
+}
+
+.package-card:hover {
+  transform: scale(1.05);
+}
+
+.package-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.package-info {
+  font-size: 1rem; /* Increased size for better readability */
+  color: #555; /* Lighter color for info text */
+  margin: 10px 0; /* Added margin for spacing */
+}
+
+.package-price {
+  font-weight: bold; /* Make price bold */
+  color: #333; /* Darker color for price */
+}
+
+.details-button {
+  background-color: #007bff; /* Button color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.details-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

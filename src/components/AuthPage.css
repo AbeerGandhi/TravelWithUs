@@ -1,0 +1,98 @@
+.auth-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .auth-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 39px 17px rgba(0, 0, 0, 0.8);
+    color: white;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .auth-container h2 {
+    font-size: 2.2rem;
+    color: #fff;
+    
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items:stretch; /* Ensure all elements take up full width */
+    width: 100%;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+  }
+  
+  .form-group label {
+    font-size: 1.0rem;
+    color: #fff;
+  }
+  
+  .form-group input {
+    padding: 0.4rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #54ab6d;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  .auth-btn {
+    padding: 2rem;
+    font-size: 1.2rem;
+    background-color: #54ab6d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .auth-btn:hover {
+    background-color: #3c8b53;
+  }
+  
+  .toggle-btn {
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    color: #92e3a9;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .toggle-btn:hover {
+    color: #54ab6d;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: white;
+  }
+  
