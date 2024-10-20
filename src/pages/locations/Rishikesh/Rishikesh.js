@@ -1,6 +1,6 @@
 import './Rishikesh.css';
 import { TravelCard } from "../../../components/locations/TravelCard";
-import { RishikeshImages } from "../../../media/rishikesh/RishikeshImages";
+import { RishikeshImages } from '../../../media/rishikesh/RishikeshImages';
 import PackCard from "../../../components/locations/PackCard";
 import contactimg from "../../../media/contactus.png";
 import { Link } from "react-router-dom";

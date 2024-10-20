@@ -1,6 +1,6 @@
 export const RajasthanImages ={
     d1 : require('./Rajasthan1.png').default,
-    d2 : require('./Rajasthan2.png').default,
+    d2 : require('./Rajaasthan2.png').default,
     db1 : require('./Rajasthan3.png').default,
     db2 : require('./Rajasthan Food1.png').default,
     dc1 : require('./Rajasthan food2.png').default,

@@ -1,6 +1,6 @@
 export const NashikImages ={
-    d1 : require('./nashik1.png').default,
-    d2 : require('./nashik2.png').default,
-    db1 : require('./nashik hotel1.png').default,
-    db2 : require('./nashik hotel2.png').default,
+    d1 : require('./wineyard.png').default,
+    d2 : require('./pandav.png').default,
+    db1 : require('./mandir.png').default,
+    db2 : require('./hill.png').default,
 }

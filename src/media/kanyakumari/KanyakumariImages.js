@@ -1,6 +1,6 @@
 export const KanyakumariImages ={
-    d1 : require('./Kanyakumari1.png').default,
-    d2 : require('./Kanyakumari2.png').default,
-    db1 : require('./Kanyakumari3.png').default,
-    db2 : require('./Kanyakumari4.png').default,
+    dp1 : require('./Kanyakumari1.png').default,
+    dp2 : require('./Kanyakumari3.png').default,
+    dp3 : require('./beach k.png').default,
+    dp4 : require('./Kanyakumari4.png').default,
 }
