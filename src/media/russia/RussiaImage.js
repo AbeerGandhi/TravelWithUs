@@ -1,0 +1,15 @@
+export const RussiaImages ={
+    d1 : require('./fam1.png').default,
+    d2 : require('./fam2.png').default,
+    db1 : require('./Rajasthan3.png').default,
+    db2 : require('./Rajasthan Food1.png').default,
+    dc1 : require('./Rajasthan food2.png').default,
+    dc2 : require('./hotel1.jpg').default,
+    dh1 : require('./hotel2.jpg').default,
+    dh2 : require('./pack1.jpg').default,
+    dp1 : require('./pack2.jpg').default,
+    dp2 : require('./pack3.jpg').default,
+    dp3 : require('./pack4.jpg').default,
+    dp4 : require('./rport1.jpg').default,
+    do1 : require('./rport2.jpg').default,
+}

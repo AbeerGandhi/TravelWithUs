@@ -76,10 +76,10 @@ export const Manali = () => {
           </div>
           <div className="images module">
             <div className="img1">
-              <img src={ManaliImages.d1} alt="Solang Valley" id="port1" />
+              <img src={ManaliImages.dp1} alt="Solang Valley" id="port1" />
             </div>
             <div className="img2">
-              <img src={ManaliImages.d2} alt="Rohtang Pass" id="port2" />
+              <img src={ManaliImages.dp2} alt="Rohtang Pass" id="port2" />
             </div>
           </div>
         </div>

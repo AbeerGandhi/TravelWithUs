@@ -76,10 +76,10 @@ export const Bengaluru = () => {
           </div>
           <div className="images module">
             <div className="img1">
-              <img src={BengaluruImages.d1} alt="Lalbagh Botanical Garden" id="port1" />
+              <img src={BengaluruImages.dp1} alt="Lalbagh Botanical Garden" id="port1" />
             </div>
             <div className="img2">
-              <img src={BengaluruImages.d2} alt="Bangalore Palace" id="port2" />
+              <img src={BengaluruImages.dp2} alt="Bangalore Palace" id="port2" />
             </div>
           </div>
         </div>

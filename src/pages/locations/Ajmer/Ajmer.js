@@ -77,10 +77,10 @@ export const Ajmer = () => {
           </div>
           <div className="images module">
             <div className="img1">
-              <img src={AjmerImages.d1} alt="Ajmer Sharif Dargah" id="port1" />
+              <img src={AjmerImages.dp1} alt="Ajmer Sharif Dargah" id="port1" />
             </div>
             <div className="img2">
-              <img src={AjmerImages.d2} alt="Ana Sagar Lake" id="port2" />
+              <img src={AjmerImages.dp2} alt="Ana Sagar Lake" id="port2" />
             </div>
           </div>
         </div>

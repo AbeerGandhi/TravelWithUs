@@ -1,0 +1,16 @@
+export const SrilankaImages ={
+    d1 : require('./beach1.png').default,
+    d2 : require('./beach2.png').default,
+    db1 : require('./culture1.png').default,
+    db2 : require('./culture2.png').default,
+    dc1 : require('./hotels1.png').default,
+    dc2 : require('./hotels2.jpg').default,
+    dh1 : require('./only1.jpg').default,
+    dh2 : require('./only2.jpg').default,
+    dp1 : require('./pack1.jpg').default,
+    dp2 : require('./pack2.jpg').default,
+    dp3 : require('./pack3.jpg').default,
+    dp4 : require('./pack4.jpg').default,
+    do1 : require('./ports1.jpg').default,
+    do2 : require('./ports2.jpg').default,
+}

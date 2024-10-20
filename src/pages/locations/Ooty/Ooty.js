@@ -76,10 +76,10 @@ export const Ooty = () => {
           </div>
           <div className="images module">
             <div className="img1">
-              <img src={OotyImages.d1} alt="Ooty Lake" id="port1" />
+              <img src={OotyImages.dp1} alt="Ooty Lake" id="port1" />
             </div>
             <div className="img2">
-              <img src={OotyImages.d2} alt="Botanical Gardens" id="port2" />
+              <img src={OotyImages.dp2} alt="Botanical Gardens" id="port2" />
             </div>
           </div>
         </div>

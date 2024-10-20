@@ -76,10 +76,10 @@ export const Kodaikanal = () => {
           </div>
           <div className="images module">
             <div className="img1">
-              <img src={KodaikanalImages.d1} alt="Kodaikanal Lake" id="port1" />
+              <img src={KodaikanalImages.dp1} alt="Kodaikanal Lake" id="port1" />
             </div>
             <div className="img2">
-              <img src={KodaikanalImages.d2} alt="Coaker's Walk" id="port2" />
+              <img src={KodaikanalImages.dp2} alt="Coaker's Walk" id="port2" />
             </div>
           </div>
         </div>

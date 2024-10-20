@@ -1,9 +1,7 @@
-import './Agra.css';
+import './Agra.css'; // Ensure your CSS file has styles for background, images, etc.
 import { TravelCard } from "../../../components/locations/TravelCard";
-import { AgraImages } from "../../../media/agra/AgraImages";
+import { AgraImages } from "../../../media/agra/AgraImages"; // Import images
 import PackCard from "../../../components/locations/PackCard";
-import contactimg from "../../../media/contactus.png";
-import { Link } from "react-router-dom";
 
 export const Agra = () => {
   const placeInfo = [
@@ -77,10 +75,10 @@ export const Agra = () => {
           </div>
           <div className="images module">
             <div className="img1">
-              <img src={AgraImages.d1} alt="Taj Mahal" id="port1" />
+              <img src={AgraImages.dp1} alt="Taj Mahal" id="port1" />
             </div>
             <div className="img2">
-              <img src={AgraImages.d2} alt="Agra Fort" id="port2" />
+              <img src={AgraImages.dp2} alt="Agra Fort" id="port2" />
             </div>
           </div>
         </div>
@@ -98,7 +96,6 @@ export const Agra = () => {
         </div>
       </div>
       <hr id="line" />
-      
     </>
   );
 };

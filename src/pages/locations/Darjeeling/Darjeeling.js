@@ -76,10 +76,10 @@ export const Darjeeling = () => {
           </div>
           <div className="images module">
             <div className="img1">
-              <img src={DarjeelingImages.d1} alt="Tiger Hill" id="port1" />
+              <img src={DarjeelingImages.dp1} alt="Tiger Hill" id="port1" />
             </div>
             <div className="img2">
-              <img src={DarjeelingImages.d2} alt="Batasia Loop" id="port2" />
+              <img src={DarjeelingImages.dp2} alt="Batasia Loop" id="port2" />
             </div>
           </div>
         </div>

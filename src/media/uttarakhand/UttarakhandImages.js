@@ -1,0 +1,16 @@
+export const UttarakhandImages = {
+    d1: require('./culture1.jpg'),
+    d2: require('./culture2.jpg'),
+    db1: require('./nature1.jpg'),
+    db2: require('./nature2.jpg'),
+    dc1: require('./onlyk1.jpg'),
+    dc2: require('./onlyk2.jpg'),
+    dh1: require('./pack1.jpg'),
+    dh2: require('./pack2.jpg'),
+    dp1: require('./pack3.jpg'),
+    dp2: require('./pack4.jpg'),
+    dp3: require('./port1.jpg'),
+    dp4: require('./port2.jpg'),
+    do1: require('./trek1.jpg'),
+    do2: require('./trek2.jpg'),
+};

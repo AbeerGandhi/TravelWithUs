@@ -76,10 +76,10 @@ export const Coorg = () => {
           </div>
           <div className="images module">
             <div className="img1">
-              <img src={CoorgImages.d1} alt="Abbey Falls" id="port1" />
+              <img src={CoorgImages.dp1} alt="Abbey Falls" id="port1" />
             </div>
             <div className="img2">
-              <img src={CoorgImages.d2} alt="Raja's Seat" id="port2" />
+              <img src={CoorgImages.dp2} alt="Raja's Seat" id="port2" />
             </div>
           </div>
         </div>
