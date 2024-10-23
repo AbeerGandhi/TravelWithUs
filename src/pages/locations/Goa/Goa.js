@@ -1,11 +1,14 @@
+import React, { useState } from 'react';
 import './Goa.css';
 import { TravelCard } from "../../../components/locations/TravelCard";
 import { GoaImages } from "../../../media/goa/GoaImages";
 import PackCard from "../../../components/locations/PackCard";
-import contactimg from "../../../media/contactus.png";
-import { Link } from "react-router-dom";
 
 export const Goa = () => {
+  const [days, setDays] = useState(""); 
+  const [submitted, setSubmitted] = useState(false); 
+  const [randomPackages, setRandomPackages] = useState([]); 
+
   const placeInfo = [
     {
       placeName: "Goa",
@@ -14,32 +17,45 @@ export const Goa = () => {
     },
   ];
 
-  const packageInfo = [
-    {
-      img: GoaImages.dp1,
-      location: "Baga Beach",
-      price: "INR 2999",
-      desc: "Experience the lively Baga Beach with water sports, beach parties, and great seafood. Ideal for adventure and fun lovers.",
+  // Updated packageInfo with conditions for days and category
+  const packageInfo = {
+    2: {
+      low: { img: GoaImages.dp1, location: "Low", price: "Upto 3,000", pdf: "/pdfs/goa/2daylowgoa.pdf" },
+      medium: { img: GoaImages.dp2, location: "Medium", price: "Upto 6,000", pdf: "/pdfs/goa/2daymediumgoa.pdf" },
+      high: { img: GoaImages.dp3, location: "High", price: "Upto 10,000", pdf: "/pdfs/goa/2dayhighgoa.pdf" },
     },
-    {
-      img: GoaImages.dp2,
-      location: "Palolem Beach",
-      price: "INR 3999",
-      desc: "Relax on the serene Palolem Beach, perfect for those looking to escape the hustle and enjoy a peaceful retreat.",
+    3: {
+      low: { img: GoaImages.dp1, location: "Low", price: "Upto 3,000", pdf: "/pdfs/goa/3daylowgoa.pdf" },
+      medium: { img: GoaImages.dp2, location: "Medium", price: "Upto 6,000", pdf: "/pdfs/goa/3daymediumgoa.pdf" },
+      high: { img: GoaImages.dp3, location: "High", price: "Upto 10,000", pdf: "/pdfs/goa/3dayhighgoa.pdf" },
     },
-    {
-      img: GoaImages.dp3,
-      location: "Old Goa",
-      price: "INR 1999",
-      desc: "Discover the rich history of Goa with a tour of Old Goa’s churches, including the famous Basilica of Bom Jesus.",
+    4: {
+      low: { img: GoaImages.dp1, location: "Low", price: "Upto 3,000", pdf: "/pdfs/goa/4daylowgoa.pdf" },
+      medium: { img: GoaImages.dp2, location: "Medium", price: "Upto 6,000", pdf: "/pdfs/goa/4daymediumgoa.pdf" },
+      high: { img: GoaImages.dp3, location: "High", price: "Upto 10,000", pdf: "/pdfs/goa/4dayhighlow.pdf" },
     },
-    {
-      img: GoaImages.dp4,
-      location: "Dudhsagar Falls",
-      price: "INR 3499",
-      desc: "Witness the majestic Dudhsagar Falls, one of the highest waterfalls in India, surrounded by lush greenery.",
-    },
-  ];
+  };
+  
+  
+
+  const handleDaysChange = (e) => {
+    setDays(e.target.value);
+  };
+
+  const pickRandomPackages = (packages) => {
+    const shuffled = packages.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+
+    if (days) {
+      const selectedPackages = Object.values(packageInfo[days]);
+      setRandomPackages(pickRandomPackages(selectedPackages));
+    }
+  };
 
   return (
     <>
@@ -84,21 +100,40 @@ export const Goa = () => {
             </div>
           </div>
         </div>
+
         <hr id="line" />
+
         <div className="t-row">
-          {packageInfo.map((pkg, index) => (
-            <PackCard
-              key={index}
-              img={pkg.img}
-              location={pkg.location}
-              price={pkg.price}
-              desc={pkg.desc}
-            />
-          ))}
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="trip-days">How many days do you want for your trip?</label>
+            <select id="trip-days" value={days} onChange={handleDaysChange}>
+              <option value="">Select</option>
+              <option value="2">2 Days</option>
+              <option value="3">3 Days</option>
+              <option value="4">4 Days</option>
+            </select>
+            <button type="submit">Submit</button>
+          </form>
         </div>
+
+        <hr id="line" />
+
+        {/* Conditionally render random 3 package cards based on form submission */}
+        {submitted && randomPackages.length > 0 && (
+          <div className="t-row">
+            {randomPackages.map((pkg, index) => (
+              <PackCard
+                key={index}
+                img={pkg.img}
+                location={pkg.location}
+                price={pkg.price}
+                desc={pkg.desc} // This is now static; consider adding desc to packageInfo
+                pdf={pkg.pdf} // Pass the specific PDF for each card
+              />
+            ))}
+          </div>
+        )}
       </div>
-      <hr id="line" />
-      
     </>
   );
 };
