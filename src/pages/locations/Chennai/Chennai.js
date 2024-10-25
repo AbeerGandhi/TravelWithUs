@@ -1,11 +1,23 @@
+import React, { useState } from 'react';
 import './Chennai.css';
 import { TravelCard } from "../../../components/locations/TravelCard";
 import { ChennaiImages } from "../../../media/chennai/ChennaiImages";
 import PackCard from "../../../components/locations/PackCard";
-import contactimg from "../../../media/contactus.png";
-import { Link } from "react-router-dom";
+import axios from 'axios'; // For API requests
+import { getDistance } from 'geolib'; // For distance calculation
 
 export const Chennai = () => {
+  const [userLocation, setUserLocation] = useState("");
+  const [submittedLocation, setSubmittedLocation] = useState(false);
+  const [distance, setDistance] = useState(0);
+  const [budgetOptions, setBudgetOptions] = useState({});
+  const [days, setDays] = useState(""); 
+  const [submittedDays, setSubmittedDays] = useState(false); 
+  const [randomPackages, setRandomPackages] = useState([]); 
+  const [error, setError] = useState(null); // To handle errors
+
+  const API_KEY = '273bd28ab95b4b67bb5b4d97b662f30b'; // Replace with your OpenCage API key
+
   const placeInfo = [
     {
       placeName: "Chennai",
@@ -14,32 +26,131 @@ export const Chennai = () => {
     },
   ];
 
-  const packageInfo = [
-    {
-      img: ChennaiImages.dp1,
-      location: "Marina Beach",
-      price: "INR 499",
-      desc: "Stroll along Marina Beach, the second-longest urban beach in the world, famous for its scenic beauty and vibrant local atmosphere.",
+  const packageInfo = {
+    2: {
+      low: { 
+        img: ChennaiImages.dp1, 
+        location: "Low", 
+        price: "2,000 - 5,000", 
+        pdf: "/pdfs/chennai/2_days_trip_in_chennai_low.pdf" 
+      },
+      medium: { 
+        img: ChennaiImages.dp2, 
+        location: "Medium", 
+        price: "5,000 - 15,000", 
+        pdf: "/pdfs/chennai/2_days_trip_in_chennai_medium.pdf" 
+      },
+      high: { 
+        img: ChennaiImages.dp3, 
+        location: "High", 
+        price: "15,000 - 30,000", 
+        pdf: "/pdfs/chennai/2_days_trip_in_chennai_high.pdf" 
+      },
     },
-    {
-      img: ChennaiImages.dp2,
-      location: "Kapaleeshwarar Temple",
-      price: "INR 999",
-      desc: "Visit the iconic Kapaleeshwarar Temple, a stunning example of Dravidian architecture, and immerse yourself in Chennai’s rich spiritual heritage.",
+    3: {
+      low: { 
+        img: ChennaiImages.dp1, 
+        location: "Low", 
+        price: "2,000 - 5,000", 
+        pdf: "/pdfs/chennai/3_days_trip_in_chennai_low.pdf" 
+      },
+      medium: { 
+        img: ChennaiImages.dp2, 
+        location: "Medium", 
+        price: "5,000 - 15,000", 
+        pdf: "/pdfs/chennai/3_days_trip_in_chennai_medium.pdf" 
+      },
+      high: { 
+        img: ChennaiImages.dp3, 
+        location: "High", 
+        price: "15,000 - 30,000", 
+        pdf: "/pdfs/chennai/3_days_trip_in_chennai_high.pdf" 
+      },
     },
-    {
-      img: ChennaiImages.dp3,
-      location: "Fort St. George",
-      price: "INR 799",
-      desc: "Explore Fort St. George, the first English fortress in India, now a museum showcasing the city’s colonial past.",
+    4: {
+      low: { 
+        img: ChennaiImages.dp1, 
+        location: "Low", 
+        price: "2,000 - 5,000", 
+        pdf: "/pdfs/chennai/4_days_trip_in_chennai_low.pdf" 
+      },
+      medium: { 
+        img: ChennaiImages.dp2, 
+        location: "Medium", 
+        price: "5,000 - 15,000", 
+        pdf: "/pdfs/chennai/4_days_trip_in_chennai_medium.pdf" 
+      },
+      high: { 
+        img: ChennaiImages.dp3, 
+        location: "High", 
+        price: "15,000 - 30,000", 
+        pdf: "/pdfs/chennai/4_days_trip_in_chennai_high.pdf" 
+      },
     },
-    {
-      img: ChennaiImages.dp4,
-      location: "Government Museum",
-      price: "INR 699",
-      desc: "Discover India's history, art, and archaeology at the Government Museum, one of the oldest museums in the country with an impressive collection of artifacts.",
-    },
-  ];
+  };
+  
+
+  const handleLocationChange = (e) => {
+    setUserLocation(e.target.value);
+  };
+
+  const determineBudget = (distance) => {
+    if (distance < 500) {
+      return { Budget: "Low (By Road)", CostRange: "(2,000 - 5,000)" };
+    } else if (distance < 1500) {
+      return { Budget: "Medium (By Train)", CostRange: "(5,000 - 15,000)" };
+    } else {
+      return { Budget: "High (By Flight)", CostRange: "(15,000 - 30,000)" };
+    }
+  };
+
+  const handleLocationSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+
+    try {
+      // Call OpenCage API to get coordinates for the entered location
+      const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${userLocation}&key=${API_KEY}`);
+      const data = response.data;
+
+      if (data.results.length > 0) {
+        const userCoords = data.results[0].geometry; // Extract coordinates from response
+        const chennaiCoords = { latitude: 13.0827, longitude: 80.2707 }; // Coordinates for Chennai
+
+        const calculatedDistance = getDistance(
+          { latitude: userCoords.lat, longitude: userCoords.lng },
+          chennaiCoords
+        );
+
+        setDistance(calculatedDistance / 1000); // Convert distance to kilometers
+        setBudgetOptions(determineBudget(calculatedDistance / 1000));
+        setSubmittedLocation(true);
+      } else {
+        setError("Unable to find the location. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred while fetching the location. Please try again.");
+    }
+  };
+
+  const handleDaysChange = (e) => {
+    setDays(e.target.value);
+  };
+
+  const pickRandomPackages = (packages) => {
+    const shuffled = packages.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  };
+
+  const handleDaysSubmit = (e) => {
+    e.preventDefault();
+    setSubmittedDays(true);
+
+    if (days) {
+      const selectedPackages = Object.values(packageInfo[days]);
+      setRandomPackages(pickRandomPackages(selectedPackages));
+    }
+  };
 
   return (
     <>
@@ -59,45 +170,65 @@ export const Chennai = () => {
           <span id="diff">E</span>verything you need to know about Chennai
           <hr />
         </h2>
+
         <div className="t-row">
-          <div className="infobox module">
-            <div className="box">
-              <div className="title">
-                <h2>
-                  <span id="diff">S</span>tart Planning Your Chennai Trip!
-                  <hr />
-                </h2>
-                <p>
-                  Chennai, a bustling metropolis with a deep cultural heritage, is a must-visit destination for its historical monuments, temples, and beaches. 
-                  The city offers a perfect balance between tradition and modernity.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="images module">
-            <div className="img1">
-              <img src={ChennaiImages.dp1} alt="Marina Beach" id="port1" />
-            </div>
-            <div className="img2">
-              <img src={ChennaiImages.dp2} alt="Kapaleeshwarar Temple" id="port2" />
-            </div>
-          </div>
-        </div>
-        <hr id="line" />
-        <div className="t-row">
-          {packageInfo.map((pkg, index) => (
-            <PackCard
-              key={index}
-              img={pkg.img}
-              location={pkg.location}
-              price={pkg.price}
-              desc={pkg.desc}
+          <form onSubmit={handleLocationSubmit} className="form-section">
+            <label htmlFor="user-location" className="form-label">Enter your location:</label>
+            <input
+              type="text"
+              id="user-location"
+              value={userLocation}
+              onChange={handleLocationChange}
+              className="form-input"
+              required
             />
-          ))}
+            <button type="submit" className="submit-btn">Submit Location</button>
+          </form>
         </div>
+
+        {error && <div className="error-message">{error}</div>}
+
+        {submittedLocation && (
+          <div className="budget-info">
+            <h3>Your Distance: {distance} km</h3>
+            <h3>Suggested Budget Option: {budgetOptions.Budget}</h3>
+            <h3>Cost Range: {budgetOptions.CostRange}</h3>
+          </div>
+        )}
+
+        <hr id="line" />
+
+        {submittedLocation && (
+          <div className="t-row">
+            <form onSubmit={handleDaysSubmit} className="form-section">
+              <label htmlFor="trip-days" className="form-label">How many days do you want for your trip?</label>
+              <select id="trip-days" value={days} onChange={handleDaysChange} className="form-select" required>
+                <option value="">Select</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4 Days</option>
+              </select>
+              <button type="submit" className="submit-btn">Submit Days</button>
+            </form>
+          </div>
+        )}
+
+        <hr id="line" />
+
+        {submittedDays && randomPackages.length > 0 && (
+          <div className="t-row">
+            {randomPackages.map((pkg, index) => (
+              <PackCard
+                key={index}
+                img={pkg.img}
+                location={pkg.location}
+                price={pkg.price}
+                pdf={pkg.pdf} // Pass the specific PDF for each card
+              />
+            ))}
+          </div>
+        )}
       </div>
-      <hr id="line" />
-      
     </>
   );
 };

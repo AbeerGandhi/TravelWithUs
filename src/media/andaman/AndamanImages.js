@@ -1,7 +1,7 @@
-export const AndamanImages ={
-    d1 : require('./andaman1.jpg').default,
-    d2 : require('./radhanagar.jpg').default,
-    db1 : require('./Havelock.jpg').default,
-    db2 : require('./cellular.jpeg').default,
-    dc1 : require('./Ross island.jpg').default,
-}
+export const AndamanImages = {
+    dp1: require('./andaman1.jpg'),
+    dp2: require('./radhanagar.jpg'),
+    dp3: require('./Havelock.jpg'),
+    dp4: require('./cellular.jpeg'),
+    dc1: require('./Ross island.jpg'),
+};

@@ -1,11 +1,23 @@
+import React, { useState } from 'react';
 import './Khajuraho.css';
 import { TravelCard } from "../../../components/locations/TravelCard";
 import { KhajurahoImages } from "../../../media/khajuraho/KhajurahoImages";
 import PackCard from "../../../components/locations/PackCard";
-import contactimg from "../../../media/contactus.png";
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import { getDistance } from 'geolib';
 
 export const Khajuraho = () => {
+  const [userLocation, setUserLocation] = useState("");
+  const [submittedLocation, setSubmittedLocation] = useState(false);
+  const [distance, setDistance] = useState(0);
+  const [budgetOptions, setBudgetOptions] = useState({});
+  const [days, setDays] = useState("");
+  const [submittedDays, setSubmittedDays] = useState(false);
+  const [randomPackages, setRandomPackages] = useState([]);
+  const [error, setError] = useState(null);
+
+  const API_KEY = '273bd28ab95b4b67bb5b4d97b662f30b';
+
   const placeInfo = [
     {
       placeName: "Khajuraho",
@@ -14,32 +26,89 @@ export const Khajuraho = () => {
     },
   ];
 
-  const packageInfo = [
-    {
-      img: KhajurahoImages.dp1,
-      location: "Western Group of Temples",
-      price: "INR 499",
-      desc: "Explore the Western Group of Temples, known for their magnificent architecture and intricate carvings.",
+  const packageInfo = {
+    2: {
+      low: { img: KhajurahoImages.dp1, location: "Low", price: "2,000 - 5,000", pdf: "/pdfs/khajuraho/2KhajurahoLow.html" },
+      medium: { img: KhajurahoImages.dp2, location: "Medium", price: "5,000 - 15,000", pdf: "/pdfs/khajuraho/2KhajurahoMedium.html" },
+      high: { img: KhajurahoImages.dp3, location: "High", price: "15,000 - 30,000", pdf: "/pdfs/khajuraho/2KhajurahoHigh.html" },
     },
-    {
-      img: KhajurahoImages.dp2,
-      location: "Kandariya Mahadev Temple",
-      price: "INR 399",
-      desc: "Visit the Kandariya Mahadev Temple, the largest temple in Khajuraho, dedicated to Lord Shiva, showcasing stunning sculptures.",
+    3: {
+      low: { img: KhajurahoImages.dp1, location: "Low", price: "2,000 - 5,000", pdf: "/pdfs/khajuraho/3KhajurahoLow.html" },
+      medium: { img: KhajurahoImages.dp2, location: "Medium", price: "5,000 - 15,000", pdf: "/pdfs/khajuraho/3KhajurahoMedium.html" },
+      high: { img: KhajurahoImages.dp3, location: "High", price: "15,000 - 30,000", pdf: "/pdfs/khajuraho/3KhajurahoHigh.html" },
     },
-    {
-      img: KhajurahoImages.dp3,
-      location: "Eastern Group of Temples",
-      price: "INR 299",
-      desc: "Discover the Eastern Group of Temples, featuring unique sculptures and architectural styles.",
+    4: {
+      low: { img: KhajurahoImages.dp1, location: "Low", price: "2,000 - 5,000", pdf: "/pdfs/khajuraho/4KhajurahoLow.html" },
+      medium: { img: KhajurahoImages.dp2, location: "Medium", price: "5,000 - 15,000", pdf: "/pdfs/khajuraho/4KhajurahoMedium.html" },
+      high: { img: KhajurahoImages.dp3, location: "High", price: "15,000 - 30,000", pdf: "/pdfs/khajuraho/4KhajurahoHigh.html" },
     },
-    {
-      img: KhajurahoImages.dp4,
-      location: "Light and Sound Show",
-      price: "INR 199",
-      desc: "Enjoy the captivating Light and Sound Show that narrates the history of Khajuraho temples.",
-    },
-  ];
+  };
+
+  const openPDF = (pdfPath) => {
+    const fullPath = `${process.env.PUBLIC_URL}${pdfPath}`;
+    window.open(fullPath, '_blank');
+  };
+
+  const handleLocationChange = (e) => {
+    setUserLocation(e.target.value);
+  };
+
+  const determineBudget = (distance) => {
+    if (distance < 500) {
+      return { Budget: "Low (By Road)", CostRange: "(2,000 - 5,000)" };
+    } else if (distance < 1500) {
+      return { Budget: "Medium (By Train)", CostRange: "(5,000 - 15,000)" };
+    } else {
+      return { Budget: "High (By Flight)", CostRange: "(15,000 - 30,000)" };
+    }
+  };
+
+  const handleLocationSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+
+    try {
+      const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${userLocation}&key=${API_KEY}`);
+      const data = response.data;
+
+      if (data.results.length > 0) {
+        const userCoords = data.results[0].geometry;
+        const khajurahoCoords = { latitude: 24.8318, longitude: 79.9199 };
+
+        const calculatedDistance = getDistance(
+          { latitude: userCoords.lat, longitude: userCoords.lng },
+          khajurahoCoords
+        );
+
+        setDistance(calculatedDistance / 1000);
+        setBudgetOptions(determineBudget(calculatedDistance / 1000));
+        setSubmittedLocation(true);
+      } else {
+        setError("Unable to find the location. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred while fetching the location. Please try again.");
+    }
+  };
+
+  const handleDaysChange = (e) => {
+    setDays(e.target.value);
+  };
+
+  const pickRandomPackages = (packages) => {
+    const shuffled = packages.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  };
+
+  const handleDaysSubmit = (e) => {
+    e.preventDefault();
+    setSubmittedDays(true);
+
+    if (days) {
+      const selectedPackages = Object.values(packageInfo[days]);
+      setRandomPackages(pickRandomPackages(selectedPackages));
+    }
+  };
 
   return (
     <>
@@ -59,45 +128,65 @@ export const Khajuraho = () => {
           <span id="diff">E</span>verything you need to know about Khajuraho
           <hr />
         </h2>
+
         <div className="t-row">
-          <div className="infobox module">
-            <div className="box">
-              <div className="title">
-                <h2>
-                  <span id="diff">S</span>tart Planning Your Khajuraho Trip!
-                  <hr />
-                </h2>
-                <p>
-                  Khajuraho, with its stunning temples and rich history, is a must-visit for anyone interested in Indian art and culture. 
-                  From ancient sculptures to modern amenities, Khajuraho offers a unique travel experience.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="images module">
-            <div className="img1">
-              <img src={KhajurahoImages.dp1} alt="Western Group of Temples" id="port1" />
-            </div>
-            <div className="img2">
-              <img src={KhajurahoImages.dp2} alt="Kandariya Mahadev Temple" id="port2" />
-            </div>
-          </div>
-        </div>
-        <hr id="line" />
-        <div className="t-row">
-          {packageInfo.map((pkg, index) => (
-            <PackCard
-              key={index}
-              img={pkg.img}
-              location={pkg.location}
-              price={pkg.price}
-              desc={pkg.desc}
+          <form onSubmit={handleLocationSubmit} className="form-section">
+            <label htmlFor="user-location" className="form-label">Enter your location:</label>
+            <input
+              type="text"
+              id="user-location"
+              value={userLocation}
+              onChange={handleLocationChange}
+              className="form-input"
+              required
             />
-          ))}
+            <button type="submit" className="submit-btn">Submit Location</button>
+          </form>
         </div>
+
+        {error && <div className="error-message">{error}</div>}
+
+        {submittedLocation && (
+          <div className="budget-info">
+            <h3>Your Distance: {distance} km</h3>
+            <h3>Suggested Budget Option: {budgetOptions.Budget}</h3>
+            <h3>Cost Range: {budgetOptions.CostRange}</h3>
+          </div>
+        )}
+
+        <hr id="line" />
+
+        {submittedLocation && (
+          <div className="t-row">
+            <form onSubmit={handleDaysSubmit} className="form-section">
+              <label htmlFor="trip-days" className="form-label">How many days do you want for your trip?</label>
+              <select id="trip-days" value={days} onChange={handleDaysChange} className="form-select" required>
+                <option value="">Select</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4 Days</option>
+              </select>
+              <button type="submit" className="submit-btn">Submit Days</button>
+            </form>
+          </div>
+        )}
+
+        <hr id="line" />
+
+        {submittedDays && randomPackages.length > 0 && (
+          <div className="t-row">
+            {randomPackages.map((pkg, index) => (
+              <PackCard
+                key={index}
+                img={pkg.img}
+                location={pkg.location}
+                price={pkg.price}
+                onClick={() => openPDF(pkg.pdf)}
+              />
+            ))}
+          </div>
+        )}
       </div>
-      <hr id="line" />
-      
     </>
   );
 };

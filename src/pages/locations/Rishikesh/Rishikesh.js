@@ -1,11 +1,25 @@
+import React, { useState } from 'react';
 import './Rishikesh.css';
 import { TravelCard } from "../../../components/locations/TravelCard";
 import { RishikeshImages } from "../../../media/rishikesh/RishikeshImages";
 import PackCard from "../../../components/locations/PackCard";
+import { getDistance } from 'geolib'; // Import geolib for distance calculations
+import axios from 'axios'; // For API requests
 import contactimg from "../../../media/contactus.png";
 import { Link } from "react-router-dom";
 
 export const Rishikesh = () => {
+  const [userLocation, setUserLocation] = useState("");
+  const [submittedLocation, setSubmittedLocation] = useState(false);
+  const [distance, setDistance] = useState(0);
+  const [budgetOptions, setBudgetOptions] = useState({});
+  const [days, setDays] = useState("");
+  const [submittedDays, setSubmittedDays] = useState(false);
+  const [randomPackages, setRandomPackages] = useState([]);
+  const [error, setError] = useState(null);
+
+  const API_KEY = '273bd28ab95b4b67bb5b4d97b662f30b'; // Replace with your OpenCage API key
+
   const placeInfo = [
     {
       placeName: "Rishikesh",
@@ -14,32 +28,85 @@ export const Rishikesh = () => {
     },
   ];
 
-  const packageInfo = [
-    {
-      img: RishikeshImages.dp1,
-      location: "Ganga Aarti",
-      price: "INR 299",
-      desc: "Witness the mesmerizing Ganga Aarti, a spiritual ceremony held every evening by the riverbank, with music, chants, and beautiful diyas.",
+  const packageInfo = {
+    2: {
+      low: { img: RishikeshImages.dp1, location: "Ganga Aarti", price: "INR 500 - 1,000", pdf: "/pdfs/rishikesh/2daylowrishikesh.pdf" },
+      medium: { img: RishikeshImages.dp2, location: "River Rafting", price: "INR 1,000 - 2,500", pdf: "/pdfs/rishikesh/2daymediumrishikesh.pdf" },
+      high: { img: RishikeshImages.dp3, location: "Yoga Retreats", price: "INR 2,500 - 5,000", pdf: "/pdfs/rishikesh/2dayhighrishikesh.pdf" },
     },
-    {
-      img: RishikeshImages.dp2,
-      location: "River Rafting",
-      price: "INR 999",
-      desc: "Experience thrilling river rafting in the Ganges, an adventure activity that attracts thrill-seekers from around the world.",
+    3: {
+      low: { img: RishikeshImages.dp1, location: "Ganga Aarti", price: "INR 500 - 1,000", pdf: "/pdfs/rishikesh/3daylowrishikesh.pdf" },
+      medium: { img: RishikeshImages.dp2, location: "River Rafting", price: "INR 1,000 - 2,500", pdf: "/pdfs/rishikesh/3daymediumrishikesh.pdf" },
+      high: { img: RishikeshImages.dp3, location: "Yoga Retreats", price: "INR 2,500 - 5,000", pdf: "/pdfs/rishikesh/3dayhighrishikesh.pdf" },
     },
-    {
-      img: RishikeshImages.dp3,
-      location: "Yoga Retreats",
-      price: "INR 1999",
-      desc: "Join a yoga retreat in Rishikesh and immerse yourself in ancient practices, mindfulness, and wellness in a serene environment.",
+    4: {
+      low: { img: RishikeshImages.dp1, location: "Ganga Aarti", price: "INR 500 - 1,000", pdf: "/pdfs/rishikesh/4daylowrishikesh.pdf" },
+      medium: { img: RishikeshImages.dp2, location: "River Rafting", price: "INR 1,000 - 2,500", pdf: "/pdfs/rishikesh/4daymediumrishikesh.pdf" },
+      high: { img: RishikeshImages.dp3, location: "Yoga Retreats", price: "INR 2,500 - 5,000", pdf: "/pdfs/rishikesh/4dayhighrishikesh.pdf" },
     },
-    {
-      img: RishikeshImages.dp4,
-      location: "Laxman Jhula",
-      price: "INR 199",
-      desc: "Visit Laxman Jhula, an iconic suspension bridge offering stunning views of the Ganges and the surrounding hills.",
-    },
-  ];
+  };
+
+  const handleLocationChange = (e) => {
+    setUserLocation(e.target.value);
+  };
+
+  const determineBudget = (distance) => {
+    if (distance < 500) {
+      return { Budget: "Low (By Road)", CostRange: "(INR 500 - 1,000)" };
+    } else if (distance < 1500) {
+      return { Budget: "Medium (By Train)", CostRange: "(INR 1,000 - 2,500)" };
+    } else {
+      return { Budget: "High (By Flight)", CostRange: "(INR 2,500 - 5,000)" };
+    }
+  };
+
+  const handleLocationSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+
+    try {
+      // Call OpenCage API to get coordinates for the entered location
+      const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${userLocation}&key=${API_KEY}`);
+      const data = response.data;
+
+      if (data.results.length > 0) {
+        const userCoords = data.results[0].geometry; // Extract coordinates from response
+        const rishikeshCoords = { latitude: 30.0861, longitude: 78.2676 }; // Coordinates for Rishikesh
+
+        const calculatedDistance = getDistance(
+          { latitude: userCoords.lat, longitude: userCoords.lng },
+          rishikeshCoords
+        );
+
+        setDistance(calculatedDistance / 1000); // Convert distance to kilometers
+        setBudgetOptions(determineBudget(calculatedDistance / 1000));
+        setSubmittedLocation(true);
+      } else {
+        setError("Unable to find the location. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred while fetching the location. Please try again.");
+    }
+  };
+
+  const handleDaysChange = (e) => {
+    setDays(e.target.value);
+  };
+
+  const pickRandomPackages = (packages) => {
+    const shuffled = packages.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  };
+
+  const handleDaysSubmit = (e) => {
+    e.preventDefault();
+    setSubmittedDays(true);
+
+    if (days) {
+      const selectedPackages = Object.values(packageInfo[days]);
+      setRandomPackages(pickRandomPackages(selectedPackages));
+    }
+  };
 
   return (
     <>
@@ -60,44 +127,62 @@ export const Rishikesh = () => {
           <hr />
         </h2>
         <div className="t-row">
-          <div className="infobox module">
-            <div className="box">
-              <div className="title">
-                <h2>
-                  <span id="diff">S</span>tart Planning Your Rishikesh Trip!
-                  <hr />
-                </h2>
-                <p>
-                  Rishikesh is not just a destination for spiritual seekers; it's also a paradise for adventure enthusiasts. 
-                  From yoga to river rafting, it offers a unique blend of tranquility and thrill, making it a perfect getaway.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="images module">
-            <div className="img1">
-              <img src={RishikeshImages.dp1} alt="Ganga Aarti" id="port1" />
-            </div>
-            <div className="img2">
-              <img src={RishikeshImages.dp2} alt="River Rafting" id="port2" />
-            </div>
-          </div>
-        </div>
-        <hr id="line" />
-        <div className="t-row">
-          {packageInfo.map((pkg, index) => (
-            <PackCard
-              key={index}
-              img={pkg.img}
-              location={pkg.location}
-              price={pkg.price}
-              desc={pkg.desc}
+          <form onSubmit={handleLocationSubmit} className="form-section">
+            <label htmlFor="user-location" className="form-label">Enter your location:</label>
+            <input
+              type="text"
+              id="user-location"
+              value={userLocation}
+              onChange={handleLocationChange}
+              className="form-input"
+              required
             />
-          ))}
+            <button type="submit" className="submit-btn">Submit Location</button>
+          </form>
         </div>
+
+        {error && <div className="error-message">{error}</div>}
+
+        {submittedLocation && (
+          <div className="budget-info">
+            <h3>Your Distance: {distance} km</h3>
+            <h3>Suggested Budget Option: {budgetOptions.Budget}</h3>
+            <h3>Cost Range: {budgetOptions.CostRange}</h3>
+          </div>
+        )}
+
+        <hr id="line" />
+
+        {submittedLocation && (
+          <div className="t-row">
+            <form onSubmit={handleDaysSubmit} className="form-section">
+              <label htmlFor="trip-days" className="form-label">How many days do you want for your trip?</label>
+              <select id="trip-days" value={days} onChange={handleDaysChange} className="form-select" required>
+                <option value="">Select</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4 Days</option>
+              </select>
+              <button type="submit" className="submit-btn">Submit Days</button>
+            </form>
+          </div>
+        )}
+
+        <hr id="line" />
+
+        {submittedDays && randomPackages.length > 0 && (
+          <div className="t-row">
+            {randomPackages.map((pkg, index) => (
+              <PackCard
+                key={index}
+                img={pkg.img}
+                location={pkg.location}
+                price={pkg.price}
+              />
+            ))}
+          </div>
+        )}
       </div>
-      <hr id="line" />
-      
     </>
   );
 };
