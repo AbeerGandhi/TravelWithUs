@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Travel Recommendation System</h1>
+    <input type="text" id="user_location" placeholder="Enter your location" required>
+    <select id="type_of_place" required>
+        <option value="">Select Type of Place</option>
+        <option value="Beach">Beach</option>
+        <option value="Mountain">Mountain</option>
+        <option value="Place of God">Place of God</option>
+        <option value="Historical">Historical</option>
+        <option value="Cultural">Cultural</option>
+        <option value="City Life">City Life</option>
+    </select>
+    <select id="climatic_condition" required>
+        <option value="">Select Climatic Condition</option>
+        <option value="Tropical">Tropical</option>
+        <option value="Cold">Cold</option>
+        <option value="Temperate">Temperate</option>
+    </select>
+    <button id="submit">Get Recommendations</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    document.getElementById('submit').addEventListener('click', function() {
+        const userLocation = document.getElementById('user_location').value;
+        const typeOfPlace = document.getElementById('type_of_place').value;
+        const climaticCondition = document.getElementById('climatic_condition').value;
+
+        fetch('/recommend', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_location: userLocation,
+                type_of_place: typeOfPlace,
+                climatic_condition: climaticCondition
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+            if (data.recommendations && data.recommendations.length > 0) {
+                data.recommendations.forEach(rec => {
+                    resultDiv.innerHTML += `<p>${rec.Name}, ${rec.State} - ${rec.Budget} (${rec['Cost Range (INR)']})</p>`;
+                });
+            } else {
+                resultDiv.innerHTML = `<p>${data.message}</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+</body>
+</html>

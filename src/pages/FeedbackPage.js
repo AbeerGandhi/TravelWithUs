@@ -4,30 +4,30 @@ import "./FeedbackPage.css"; // Import the associated CSS for styling
 // Sample feedback data
 const feedbackData = [
   {
-    name: "John Doe",
-    img: "https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=2299", // Replace with actual image path
-    location: "New York, USA",
+    name: "Abeer Gandhi",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", // Replace with actual image path
+    location: "Nagpur,India",
     feedback: "Absolutely loved the experience! The service was top-notch, and I will definitely be coming back.",
     rating: "⭐⭐⭐⭐⭐",
   },
   {
-    name: "Jane Smith",
-    img: "https://media.licdn.com/dms/image/v2/C4D03AQEeEyYzNtDq7g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1524234561685?e=2147483647&v=beta&t=uHzeaBv3V2z6Tp6wvhzGABlTs9HR-SP-tEX1UbYNn4Q", // Replace with actual image path
-    location: "London, UK",
+    name: "Devensingh Chauhan",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", // Replace with actual image path
+    location: "Aurangabad,India",
     feedback: "A fantastic experience from start to finish. Everything was well organized, and the staff was very friendly.",
     rating: "⭐⭐⭐⭐",
   },
   {
-    name: "Rahul Patel",
-    img: "https://avatars.githubusercontent.com/u/744487?v=4", // Replace with actual image path
-    location: "Mumbai, India",
+    name: "Aman Patne",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", // Replace with actual image path
+    location: "Nagpur, India",
     feedback: "Good value for money, but I felt some areas could have been improved. Overall, it was a pleasant experience.",
     rating: "⭐⭐⭐",
   },
   {
-    name: "Maria Garcia",
-    img: "https://apiumhub.com/wp-content/uploads/2021/02/Monica.jpg", // Replace with actual image path
-    location: "Barcelona, Spain",
+    name: "Mrityunjay Gupta",
+    img: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", // Replace with actual image path
+    location: "Gondia,India",
     feedback: "An incredible trip! The accommodations were wonderful, and I enjoyed every moment of it.",
     rating: "⭐⭐⭐⭐⭐",
   },

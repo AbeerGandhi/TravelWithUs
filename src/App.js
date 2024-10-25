@@ -1,10 +1,11 @@
 // App.js
 import React from "react";
 import "./App.css";
+import { AuthPage } from "./components/AuthPage";
 import { Home } from "./pages/Home";
 import { Contact } from "./pages/Contact";
 import { ServicesPage } from "./pages/ServicesPage";
-import { AuthPage } from "./components/AuthPage";
+import { WelcomePage } from "./components/WelcomePage";
 import { Locations } from "./pages/Locations";
 import { FeedbackPage } from "./pages/FeedbackPage";
 import { Navbar } from "./components/Navbar";
@@ -101,10 +102,11 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+        <Route path="/auth" element={<AuthPage />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/book" element={<Book />} />
           <Route path="/servicesPage" element={<ServicesPage />} />
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/" element={<WelcomePage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/feedback" element={<FeedbackPage />} />
           <Route path="/locations" element={<Locations />} />
@@ -119,7 +121,7 @@ function App() {
         <Footer />
       </Router>
     </div>
-  );
+  ); 
 }
 
 export default App;

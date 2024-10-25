@@ -1,93 +1,268 @@
 .services-page {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-  }
+  min-height: 100vh; /* Minimum height to cover the full viewport */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the top and let it expand */
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  margin-bottom: 2rem;
+}
+
+
+.services-page .content {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 39px 17px rgba(0, 0, 0, 0.8);
+  color: white;
+  max-width: 800px;
+  width: 100%;
+}
+
+.services-page h3 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.services-page p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  gap: 1.5rem; /* Space between form groups */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.search-form .form-group {
+  display: flex;
+  flex-direction: column; /* Keep labels and inputs stacked */
+  align-items: stretch; /* Stretch inputs to fill container */
+}
+
+.search-form .form-group label {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.search-form .form-group input,
+.search-form .form-group select {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  width: 100%; /* Set full width for inputs */
+}
+
+.search-form .form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-form .form-group select option {
+  background: #000;
+  color: white;
+}
+
+.search-form button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #54ab6d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #37474f;
+}
+
+.search-result {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  color: #92e3a9;
+}
+
+.recommendations-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   
-  .services-page .content {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 39px 17px rgba(0, 0, 0, 0.8);
-    color: white;
-    max-width: 600px;
-    width: 100%;
+}
+
+.recommendations-table thead {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.recommendations-table thead th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.recommendations-table tbody tr {
+  border-bottom: 1px solid #282626;
+}
+
+.recommendations-table tbody tr:nth-of-type(even) {
+  background-color: #2b2828;
+}
+.recommendations-table tbody tr:nth-of-type(odd) {
+  background-color: #2b2828;
+}
+.recommendations-table tbody tr:hover {
+  background-color: #393535;
+  cursor: pointer;
+}
+
+.recommendations-table tbody td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.recommendations-table tbody td:first-child {
+  font-weight: bold;
+}
+
+.recommendations-table tbody td:last-child {
+  text-align: right;
+}
+
+.recommendations-table th,
+.recommendations-table td {
+  border: none;
+}
+
+.recommendations-table tr:hover {
+  background-color: #b7e7bb;
+  transition: background-color 0.3s ease;
+}
+.recommendation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+.recommendation-table thead {
+  background-color: #54ab6d;
+}
+
+.recommendation-table th, .recommendation-table td {
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.recommendation-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.recommendation-table tbody tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.recommendation-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* "Go to" Button Styling */
+.recommendation-table button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  background-color: #54ab6d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.recommendation-table button:hover {
+  background-color: #37474f;
+}
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .services-page {
+      padding: 20px;
   }
-  
+
   .services-page h3 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 1rem;
+      font-size: 2rem; /* Smaller heading on mobile */
   }
-  
+
   .services-page p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+      font-size: 1rem; /* Smaller paragraph on mobile */
   }
-  
-  .search-form {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    gap: 1.5rem; /* Space between form groups */
-    width: 100%; /* Ensure it takes full width */
+
+  .search-btn {
+      padding: 0.8rem 1.5rem; /* Adjust button padding */
+      font-size: 1rem; /* Smaller button text */
   }
-  
-  .search-form .form-group {
-    display: flex;
-    flex-direction: column; /* Keep labels and inputs stacked */
-    align-items: stretch; /* Stretch inputs to fill container */
-  }
-  
+
   .search-form .form-group label {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-    color: #fff;
+      font-size: 1rem; /* Smaller label font */
   }
-  
+
   .search-form .form-group input,
   .search-form .form-group select {
-    padding: 0.8rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 1rem;
-    width: 100%; /* Set full width for inputs */
-    max-width: none; /* Remove max-width restriction */
+      padding: 0.6rem; /* Smaller input padding */
+      font-size: 0.9rem; /* Smaller input text */
   }
-  
-  .search-form .form-group input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .search-form .form-group select option {
-    background: #000;
-    color: white;
-  }
-  
-  .search-btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background-color: #54ab6d;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    letter-spacing: 2px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .search-btn:hover {
-    background-color: #37474f;
-  }
-  
+
   .search-result {
-    margin-top: 1.5rem;
-    font-size: 1.3rem;
-    color: #92e3a9;
+      font-size: 1.1rem; /* Smaller search result text */
   }
-  
+}
+
+@media (max-width: 480px) {
+  .services-page {
+      padding: 10px;
+  }
+
+  .services-page h3 {
+      font-size: 1.5rem; /* Even smaller heading */
+  }
+
+  .services-page p {
+      font-size: 0.9rem; /* Even smaller paragraph */
+  }
+
+  .search-btn {
+      padding: 0.6rem 1.2rem; /* Further adjust button padding */
+      font-size: 0.9rem; /* Smaller button text */
+      background-color: #54ab6d;
+  }
+
+  .search-form .form-group label {
+      font-size: 0.9rem; /* Smaller label font */
+  }
+
+  .search-form .form-group input,
+  .search-form .form-group select {
+      padding: 0.4rem; /* Further smaller input padding */
+      font-size: 0.8rem; /* Even smaller input text */
+  }
+
+  .search-result {
+      font-size: 1rem; /* Smaller search result text */
+  }
+}

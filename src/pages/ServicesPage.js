@@ -1,21 +1,57 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import "./servicesPage.css";
-
 export const ServicesPage = () => {
   const [placeType, setPlaceType] = useState("");
   const [climaticCondition, setClimaticCondition] = useState("");
-  const [budget, setBudget] = useState("");
+  const [location, setLocation] = useState("");
   const [searchResult, setSearchResult] = useState(null);
+  const [error, setError] = useState("");
+  
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSearch = (e) => {
     e.preventDefault();
 
-    if (placeType && climaticCondition && budget) {
-      // Handle search logic here (currently mock result)
-      setSearchResult(`Searching for a ${placeType} place to visit during ${climaticCondition} conditions with a ${budget} budget.`);
+    if (placeType && climaticCondition && location) {
+      const userPreferences = {
+        type_of_place: placeType,
+        climatic_condition: climaticCondition,
+        location: location
+      };
+    
+      fetch('http://localhost:5000/recommend', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin':'*'
+          },
+          body: JSON.stringify(userPreferences)
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log('Recommendations:', data);
+          setSearchResult(data.recommendations || []);  // Ensure recommendations are received
+          setError("");
+      })
+      .catch(error => {
+          console.error('Error fetching recommendations:', error);
+          setError('Error fetching recommendations. Please try again.');
+          setSearchResult(null);
+      });
     } else {
       alert("Please fill out all fields to proceed.");
     }
+  };
+
+  // Function to handle navigation
+  const handleGoToLocation = (locationName) => {
+    navigate(`/locations/${locationName}`); // Navigating to the respective location page
   };
 
   return (
@@ -32,63 +68,76 @@ export const ServicesPage = () => {
               onChange={(e) => setPlaceType(e.target.value)}
               required
             >
-              <option value="" disabled>
-                Select Type of Place
-              </option>
+              <option value="" disabled>Select Type of Place</option>
               <option value="Beach">Beach</option>
               <option value="Mountain">Mountain</option>
               <option value="Historical">Historical</option>
               <option value="Place of God">Place of God</option>
-              <option value="Religious">Religious</option>
-              <option value="Cultural">Cultural</option>
-              <option value="Desert">Desert</option>
-              <option value="City Life">City Life</option>
-              <option value="Hill Station">Hill Station</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label htmlFor="climaticCondition">Climatic Conditions</label>
+            <label htmlFor="climaticCondition">Climatic Condition</label>
             <select
               id="climaticCondition"
               value={climaticCondition}
               onChange={(e) => setClimaticCondition(e.target.value)}
               required
             >
-              <option value="" disabled>
-                Select Climatic Condition
-              </option>
+              <option value="" disabled>Select Climatic Condition</option>
               <option value="Tropical">Tropical</option>
               <option value="Cold">Cold</option>
-              <option value="Desert">Desert</option>
               <option value="Temperate">Temperate</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label htmlFor="budget">Budget</label>
-            <select
-              id="budget"
-              value={budget}
-              onChange={(e) => setBudget(e.target.value)}
+            <label htmlFor="location">Your Location</label>
+            <input
+              type="text"
+              id="location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
               required
-            >
-              <option value="" disabled>
-                Select Budget
-              </option>
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-            </select>
+            />
           </div>
 
-          <button className="search-btn" type="submit">
-            Search
-          </button>
+          <button type="submit">Search</button>
         </form>
 
-        {searchResult && (
-          <p className="search-result">{searchResult}</p>
+        {error && <p className="error">{error}</p>}
+
+        {searchResult && searchResult.length > 0 && (
+          <table className="recommendation-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>State</th>
+                <th>Type</th>
+                <th>Climatic Condition</th>
+                <th>Budget</th>
+                <th>Cost Range (INR)</th>
+                <th>Go To</th>
+              </tr>
+            </thead>
+            <tbody>
+              {searchResult.map((place, index) => (
+                <tr key={index}>
+                  <td>{place.Name}</td>
+                  <td>{place.State}</td>
+                  <td>{place.Type}</td>
+                  <td>{place["Climatic Condition"]}</td>
+                  <td>{place.Budget}</td>
+                  <td>{place["Cost Range (INR)"]}</td>
+                  <td>
+                    <button onClick={() => handleGoToLocation(place.Name.toLowerCase())}>
+                      Go to {place.Name}
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </section>

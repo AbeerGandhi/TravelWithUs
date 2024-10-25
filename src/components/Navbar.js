@@ -8,7 +8,7 @@ export const Navbar = () => {
     <nav>
       <div className="logo">
         <Link to="/"><span>T</span>ravelWithUs</Link>
-        <p>Travel made easy</p>
+        
       </div>
       <input type="checkbox" id="check" />
       <label for="check" className="checkbtn">

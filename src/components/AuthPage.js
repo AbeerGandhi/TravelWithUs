@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./AuthPage.css"; // Import the associated CSS for styling
 
 export const AuthPage = () => {
@@ -8,22 +9,46 @@ export const AuthPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [registeredUsers, setRegisteredUsers] = useState([]); // To store registered users
+
+  const navigate = useNavigate(); // Create navigate instance
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMessage("");
 
-    // Validate password matching during signup
-    if (!isLogin && password !== confirmPassword) {
-      setErrorMessage("Passwords do not match!");
-      return;
-    }
+    if (!isLogin) {
+      // Signup
+      // Validate password matching
+      if (password !== confirmPassword) {
+        setErrorMessage("Passwords do not match!");
+        return;
+      }
 
-    // Simulate API call
-    if (isLogin) {
-      console.log("Login submitted:", { username, password });
+      // Check if the user already exists
+      const userExists = registeredUsers.find((user) => user.username === username || user.email === email);
+      if (userExists) {
+        setErrorMessage("User with this username or email already exists!");
+        return;
+      }
+
+      // Add new user to registeredUsers list
+      setRegisteredUsers([...registeredUsers, { username, email, password }]);
+      setErrorMessage("Signup successful! Please log in.");
+      setIsLogin(true);
     } else {
-      console.log("Signup submitted:", { username, email, password });
+      // Login
+      const user = registeredUsers.find(
+        (user) => (user.username === username || user.email === email) && user.password === password
+      );
+
+      if (!user) {
+        setErrorMessage("Invalid username/email or password.");
+      } else {
+        setErrorMessage("Login successful! Redirecting...");
+        // Redirect to the main page (App.js) after successful login
+        navigate("/home"); // Navigates to the home page, which is App.js
+      }
     }
 
     // Reset form fields
@@ -94,10 +119,7 @@ export const AuthPage = () => {
 
         <p>
           {isLogin ? "Don't have an account?" : "Already have an account?"}
-          <button
-            onClick={() => setIsLogin(!isLogin)}
-            className="toggle-btn"
-          >
+          <button onClick={() => setIsLogin(!isLogin)} className="toggle-btn">
             {isLogin ? "Sign Up" : "Login"}
           </button>
         </p>
