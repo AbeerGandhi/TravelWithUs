@@ -7,52 +7,63 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        h1 {
+
+        header {
+            background-color: #006400;
+            color: white;
             text-align: center;
-            color: #d35400;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            padding: 20px 0;
         }
+
+        header h1 {
+            margin: 0;
+        }
+
         .container {
             max-width: 800px;
             margin: auto;
-            background-color: #fff;
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .day {
             margin-bottom: 30px;
         }
-        .day h2 {
-            color: #27ae60;
-            border-bottom: 2px solid #d35400;
+
+        h2 {
+            color: #006400;
+            border-bottom: 2px solid #c0392b;
             padding-bottom: 10px;
             font-size: 1.8em;
         }
-        .activity {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #ecf0f1;
-            border-left: 5px solid #2980b9;
-            border-radius: 5px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
         }
-        .activity h3 {
-            margin: 0;
-            color: #2980b9;
-            font-size: 1.5em;
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
         }
-        .activity p {
-            margin: 5px 0;
+
+        table th {
+            background-color: #006400;
+            color: white;
         }
-        .activity p strong {
-            color: #d35400;
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
+
         footer {
             text-align: center;
             font-size: 0.9em;
@@ -63,105 +74,134 @@
 </head>
 <body>
 
-    <div class="container">
+    <header>
         <h1>3-Day Trip Itinerary - Khajuraho</h1>
-        
+    </header>
+
+    <div class="container">
         <!-- Day 1 -->
         <div class="day">
-            <h2>Day 1</h2>
-            <div class="activity">
-                <h3>Khajuraho Group of Monuments</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Duration:</strong> 240 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Western Group of Temples</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Duration:</strong> 180 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Eastern Group of Temples</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> A UNESCO World Heritage Site, the Eastern Group of Temples showcases intricate carvings and sculptures depicting Hindu mythology.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Khajuraho Archaeological Museum</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> Houses artifacts from the Khajuraho temples, offering insights into their history and craftsmanship.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Jatashankar Temple</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> A revered Hindu temple dedicated to Lord Shiva, known for its intricate carvings and serene atmosphere.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
+            <h2>Day 1 - 22 Oct, 2024</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Khajuraho's Tribal Dance Performance</td>
+                        <td>Khajuraho</td>
+                        <td>A cultural evening showcasing traditional tribal dances, reflecting local heritage and arts.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Waterfall at Raneh</td>
+                        <td>Khajuraho</td>
+                        <td>A picturesque waterfall surrounded by stunning rock formations, ideal for photography.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Brahma Temple</td>
+                        <td>Khajuraho</td>
+                        <td>One of the few temples dedicated to Brahma, showcasing beautiful architectural details.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Shantinath Temple</td>
+                        <td>Khajuraho</td>
+                        <td>A serene Jain temple known for its detailed artwork and peaceful ambiance.</td>
+                        <td>60</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Day 2 -->
         <div class="day">
-            <h2>Day 2</h2>
-            <div class="activity">
-                <h3>Raneh Falls</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> Raneh Falls is a scenic waterfall located in the Vindhya Range, known for its natural beauty and surrounding forests.</p>
-                <p><strong>Duration:</strong> 180 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Panna National Park</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> Panna National Park is a wildlife sanctuary known for its diverse flora and fauna, including tigers, leopards, and sloth bears.</p>
-                <p><strong>Duration:</strong> 240 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Ken Gharial Sanctuary</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> A sanctuary dedicated to protecting the critically endangered Gharial crocodile.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Khajuraho Market</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> Known for its ancient Hindu and Jain temples with intricate carvings, ideal for shopping and souvenirs.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Local Restaurant</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> Enjoy authentic cuisine at a local restaurant, experiencing the flavors of Madhya Pradesh.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
+            <h2>Day 2 - 23 Oct, 2024</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Adinath Temple</td>
+                        <td>Khajuraho</td>
+                        <td>A beautiful Jain temple with stunning carvings depicting various scenes from Jain mythology.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Chaturbhuj Temple</td>
+                        <td>Khajuraho</td>
+                        <td>A stunning temple dedicated to Lord Vishnu, featuring an impressive sculpture of the deity.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Dhubela Museum</td>
+                        <td>Dhubela</td>
+                        <td>A museum showcasing artifacts and sculptures from the region, reflecting its rich history.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Parvati Temple</td>
+                        <td>Khajuraho</td>
+                        <td>A smaller temple with intricate carvings, dedicated to Goddess Parvati.</td>
+                        <td>60</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Day 3 -->
         <div class="day">
-            <h2>Day 3</h2>
-            <div class="activity">
-                <h3>Khajuraho Dance Festival</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> Witness vibrant performances of traditional Indian dance forms during the famous Khajuraho Dance Festival.</p>
-                <p><strong>Duration:</strong> 240 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Khajuraho Sound and Light Show</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> A captivating multimedia show illuminating the intricate carvings of the Khajuraho temples.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Local Restaurant</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> Enjoy authentic South Indian cuisine, known for its spices and flavors.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Khajuraho Airport (HJR)</h3>
-                <p><strong>City:</strong> Khajuraho</p>
-                <p><strong>Description:</strong> The gateway to the renowned Khajuraho Group of Monuments, a UNESCO World Heritage Site.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
+            <h2>Day 3 - 24 Oct, 2024</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Khajuraho Group of Monuments</td>
+                        <td>Khajuraho</td>
+                        <td>A UNESCO World Heritage site known for its stunning temples with intricate erotic sculptures.</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Mahadev Temple</td>
+                        <td>Khajuraho</td>
+                        <td>A unique temple dedicated to Lord Shiva, showcasing beautiful architecture and carvings.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Vamana Temple</td>
+                        <td>Khajuraho</td>
+                        <td>A temple dedicated to Lord Vamana, featuring exquisite carvings and sculptures.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Chandela Cultural Centre</td>
+                        <td>Khajuraho</td>
+                        <td>A center dedicated to preserving and promoting the local culture through various art forms.</td>
+                        <td>120</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
     </div>
 
     <footer>

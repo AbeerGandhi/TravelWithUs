@@ -28,22 +28,22 @@ export const Pondicherry = () => {
 
   const packageInfo = {
     2: {
-      low: { img: PondicherryImages.dp1, location: "Low", price: "2,000 - 5,000", pdf: "/pdfs/pondicherry/2daylownooty.pdf" },
-      medium: { img: PondicherryImages.dp2, location: "Medium", price: "5,000 - 15,000", pdf: "/pdfs/pondicherry/2daymediumnooty.pdf" },
-      high: { img: PondicherryImages.dp3, location: "High", price: "15,000 - 30,000", pdf: "/pdfs/pondicherry/2dayhighooty.pdf" },
+      low: { img: PondicherryImages.dp1, location: "Low", pdf: "/pdfs/pondicherry/2PondicherryLow.html" },
+      medium: { img: PondicherryImages.dp2, location: "Medium", pdf: "/pdfs/pondicherry/2PondicherryMedium.html" },
+      high: { img: PondicherryImages.dp3, location: "High", pdf: "/pdfs/pondicherry/2PondicherryHigh.html" },
     },
     3: {
-      low: { img: PondicherryImages.dp1, location: "Low", price: "2,000 - 5,000", pdf: "/pdfs/pondicherry/3daylownooty.pdf" },
-      medium: { img: PondicherryImages.dp2, location: "Medium", price: "5,000 - 15,000", pdf: "/pdfs/pondicherry/3daymediumnooty.pdf" },
-      high: { img: PondicherryImages.dp3, location: "High", price: "15,000 - 30,000", pdf: "/pdfs/pondicherry/3dayhighooty.pdf" },
+      low: { img: PondicherryImages.dp1, location: "Low", pdf: "/pdfs/pondicherry/3PondicherryLow.html" },
+      medium: { img: PondicherryImages.dp2, location: "Medium", pdf: "/pdfs/pondicherry/3PondicherryMedium.html" },
+      high: { img: PondicherryImages.dp3, location: "High", pdf: "/pdfs/pondicherry/3PondicherryHigh.html" },
     },
     4: {
-      low: { img: PondicherryImages.dp1, location: "Low", price: "2,000 - 5,000", pdf: "/pdfs/pondicherry/4daylownooty.pdf" },
-      medium: { img: PondicherryImages.dp2, location: "Medium", price: "5,000 - 15,000", pdf: "/pdfs/pondicherry/4daymediumnooty.pdf" },
-      high: { img: PondicherryImages.dp3, location: "High", price: "15,000 - 30,000", pdf: "/pdfs/pondicherry/4dayhighooty.pdf" },
+      low: { img: PondicherryImages.dp1, location: "Low", pdf: "/pdfs/pondicherry/4PondicherryLow.html" },
+      medium: { img: PondicherryImages.dp2, location: "Medium", pdf: "/pdfs/pondicherry/4PondicherryMedium.html" },
+      high: { img: PondicherryImages.dp3, location: "High", pdf: "/pdfs/pondicherry/4PondicherryHigh.html" },
     },
   };
-
+  
   const handleLocationChange = (e) => {
     setUserLocation(e.target.value);
   };

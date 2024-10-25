@@ -7,52 +7,63 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        h1 {
+
+        header {
+            background-color: #006400;
+            color: white;
             text-align: center;
-            color: #c0392b;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            padding: 20px 0;
         }
+
+        header h1 {
+            margin: 0;
+        }
+
         .container {
             max-width: 800px;
             margin: auto;
-            background-color: #fff;
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .day {
             margin-bottom: 30px;
         }
-        .day h2 {
-            color: #8e44ad;
+
+        h2 {
+            color: #006400;
             border-bottom: 2px solid #c0392b;
             padding-bottom: 10px;
             font-size: 1.8em;
         }
-        .activity {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #ecf0f1;
-            border-left: 5px solid #e67e22;
-            border-radius: 5px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
         }
-        .activity h3 {
-            margin: 0;
-            color: #e67e22;
-            font-size: 1.5em;
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
         }
-        .activity p {
-            margin: 5px 0;
+
+        table th {
+            background-color: #006400;
+            color: white;
         }
-        .activity p strong {
-            color: #c0392b;
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
+
         footer {
             text-align: center;
             font-size: 0.9em;
@@ -63,118 +74,150 @@
 </head>
 <body>
 
-    <div class="container">
+    <header>
         <h1>3-Day Trip Itinerary - Jaipur</h1>
-        
+    </header>
+
+    <div class="container">
         <!-- Day 1 -->
         <div class="day">
             <h2>Day 1 - 22 Oct, 2024</h2>
-            <div class="activity">
-                <h3>Hawa Mahal</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> The Hawa Mahal, or Palace of Winds, is a unique architectural marvel built in 1799, known for its honeycomb-like facade and intricate windows.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>City Palace</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> The City Palace is a grand palace complex built in the 18th century, showcasing the rich history and culture of Jaipur.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Jantar Mantar</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> An 18th-century astronomical observatory with intricate instruments for tracking celestial bodies.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Albert Hall Museum</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A beautiful museum showcasing a diverse collection of art, artifacts, and sculptures.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Chokhi Dhani</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A cultural village experience showcasing Rajasthani traditions, crafts, and entertainment.</p>
-                <p><strong>Duration:</strong> 180 minutes</p>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Albert Hall Museum</td>
+                        <td>Jaipur</td>
+                        <td>A museum showcasing a rich collection of art, artifacts, and sculptures from Rajasthan.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Hawa Mahal</td>
+                        <td>Jaipur</td>
+                        <td>Known as the Palace of Winds, this architectural marvel is famous for its unique facade.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>City Palace</td>
+                        <td>Jaipur</td>
+                        <td>A grand palace complex with beautiful gardens, museums, and courtyards.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Jantar Mantar</td>
+                        <td>Jaipur</td>
+                        <td>An astronomical observatory with remarkable instruments built in the 18th century.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Chokhi Dhani</td>
+                        <td>Jaipur</td>
+                        <td>A cultural village offering a traditional Rajasthani experience with food and entertainment.</td>
+                        <td>120</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Day 2 -->
         <div class="day">
             <h2>Day 2 - 23 Oct, 2024</h2>
-            <div class="activity">
-                <h3>Amer Fort</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A majestic fort perched on a hill, offering stunning views and glimpses into the rich history of Jaipur.</p>
-                <p><strong>Duration:</strong> 180 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Jal Mahal</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A palace built in the middle of Man Sagar Lake, Jal Mahal is a stunning architectural marvel.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Nahargarh Fort</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A majestic fort perched on a hill overlooking Jaipur, offering panoramic views and a glimpse into the city's rich history.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Jaipur Bazaar</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A vibrant marketplace in Jaipur, offering a kaleidoscope of Rajasthani crafts, textiles, and jewelry.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>The Forresta</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A luxurious hotel in Jaipur, known for its elegant rooms and rooftop dining.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Amber Fort</td>
+                        <td>Jaipur</td>
+                        <td>A majestic fort known for its artistic style and stunning views of the surrounding area.</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Jal Mahal</td>
+                        <td>Jaipur</td>
+                        <td>A beautiful palace located in the middle of Man Sagar Lake, known for its unique architecture.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Nahargarh Fort</td>
+                        <td>Jaipur</td>
+                        <td>A fort offering panoramic views of Jaipur and a glimpse into the region's history.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Govind Devji Temple</td>
+                        <td>Jaipur</td>
+                        <td>A significant temple dedicated to Lord Krishna, renowned for its architecture and festivals.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Birla Mandir</td>
+                        <td>Jaipur</td>
+                        <td>A stunning white marble temple dedicated to Lord Vishnu and Goddess Lakshmi.</td>
+                        <td>60</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Day 3 -->
         <div class="day">
             <h2>Day 3 - 24 Oct, 2024</h2>
-            <div class="activity">
-                <h3>Galtaji Temple</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A Hindu temple complex with a sacred monkey sanctuary, known for its natural rock-cut steps and holy water pools.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Govind Devji Temple</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A revered Hindu temple dedicated to Lord Krishna, known for its intricate architecture and vibrant festivals.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Birla Mandir</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A stunning marble temple dedicated to Lord Vishnu and Goddess Lakshmi, known for its intricate carvings and serene atmosphere.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Jaipur Zoo</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> Home to a diverse range of animals, the Jaipur Zoo offers a glimpse into India's wildlife.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Laxmi Narayan Temple</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A beautiful temple dedicated to Laxmi and Narayan, known for its intricate architecture and peaceful atmosphere.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Tapasya Spa</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> Tapasya Spa offers a serene escape with traditional Indian therapies and modern spa treatments.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sisodia Rani Ka Bagh</td>
+                        <td>Jaipur</td>
+                        <td>A beautiful garden with terraced lawns and fountains, built for the queen.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Gaitore Ki Chhatriyan</td>
+                        <td>Jaipur</td>
+                        <td>A royal cremation ground with intricately designed cenotaphs of the Kachhwaha dynasty.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Jaipur Wax Museum</td>
+                        <td>Jaipur</td>
+                        <td>A museum featuring lifelike wax figures of celebrities and historical figures.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Handicrafts Shopping at Johari Bazaar</td>
+                        <td>Jaipur</td>
+                        <td>A bustling market known for exquisite jewelry, textiles, and traditional handicrafts.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Rajasthani Cuisine at Laxmi Mishthan Bhandar</td>
+                        <td>Jaipur</td>
+                        <td>A famous eatery known for its delicious sweets and authentic Rajasthani dishes.</td>
+                        <td>60</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>

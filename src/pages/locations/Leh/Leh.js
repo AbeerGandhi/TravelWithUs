@@ -28,21 +28,22 @@ export const Leh = () => {
 
   const packageInfo = {
     2: {
-      low: { img: LehImages.dp1, location: "Pangong Lake", price: "INR 5,999", pdf: "/pdfs/leh/2daylowleh.pdf" },
-      medium: { img: LehImages.dp2, location: "Nubra Valley", price: "INR 4,999", pdf: "/pdfs/leh/2daymediumleh.pdf" },
-      high: { img: LehImages.dp3, location: "Thiksey Monastery", price: "INR 19,999", pdf: "/pdfs/leh/2dayhighleh.pdf" },
+      low: { img: LehImages.dp1, location: "Pangong Lake", price: "INR 5,999", pdf: "/pdfs/leh/2LehLow.html" },
+      medium: { img: LehImages.dp2, location: "Nubra Valley", price: "INR 4,999", pdf: "/pdfs/leh/2LehMedium.html" },
+      high: { img: LehImages.dp3, location: "Thiksey Monastery", price: "INR 19,999", pdf: "/pdfs/leh/2LehHigh.html" },
     },
     3: {
-      low: { img: LehImages.dp1, location: "Pangong Lake", price: "INR 5,999", pdf: "/pdfs/leh/3daylowleh.pdf" },
-      medium: { img: LehImages.dp2, location: "Nubra Valley", price: "INR 4,999", pdf: "/pdfs/leh/3daymediumleh.pdf" },
-      high: { img: LehImages.dp3, location: "Thiksey Monastery", price: "INR 19,999", pdf: "/pdfs/leh/3dayhighleh.pdf" },
+      low: { img: LehImages.dp1, location: "Pangong Lake", price: "INR 5,999", pdf: "/pdfs/leh/3LehLow.html" },
+      medium: { img: LehImages.dp2, location: "Nubra Valley", price: "INR 4,999", pdf: "/pdfs/leh/3LehMedium.html" },
+      high: { img: LehImages.dp3, location: "Thiksey Monastery", price: "INR 19,999", pdf: "/pdfs/leh/3LehHigh.html" },
     },
     4: {
-      low: { img: LehImages.dp1, location: "Pangong Lake", price: "INR 5,999", pdf: "/pdfs/leh/4daylowleh.pdf" },
-      medium: { img: LehImages.dp2, location: "Nubra Valley", price: "INR 4,999", pdf: "/pdfs/leh/4daymediumleh.pdf" },
-      high: { img: LehImages.dp3, location: "Thiksey Monastery", price: "INR 19,999", pdf: "/pdfs/leh/4dayhighleh.pdf" },
+      low: { img: LehImages.dp1, location: "Pangong Lake", price: "INR 5,999", pdf: "/pdfs/leh/4LehLow.html" },
+      medium: { img: LehImages.dp2, location: "Nubra Valley", price: "INR 4,999", pdf: "/pdfs/leh/4LehMedium.html" },
+      high: { img: LehImages.dp3, location: "Thiksey Monastery", price: "INR 19,999", pdf: "/pdfs/leh/4LehHigh.html" },
     },
   };
+  
 
   const handleLocationChange = (e) => {
     setUserLocation(e.target.value);

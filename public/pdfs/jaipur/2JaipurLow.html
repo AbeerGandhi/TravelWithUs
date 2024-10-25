@@ -3,56 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2-Day Jaipur Trip Itinerary</title>
+    <title>2-Day Trip Itinerary - Jaipur</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        h1 {
+
+        header {
+            background-color: #006400;
+            color: white;
             text-align: center;
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            padding: 20px 0;
         }
+
+        header h1 {
+            margin: 0;
+        }
+
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: auto;
-            background-color: #fff;
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .day {
             margin-bottom: 30px;
         }
-        .day h2 {
-            color: #d35400;
-            border-bottom: 2px solid #d35400;
-            padding-bottom: 5px;
+
+        h2 {
+            color: #006400;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
             font-size: 1.8em;
         }
-        .activity {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #ecf0f1;
-            border-left: 5px solid #e67e22;
-            border-radius: 5px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
         }
-        .activity h3 {
-            margin: 0;
-            color: #e67e22;
-            font-size: 1.5em;
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
         }
-        .activity p {
-            margin: 5px 0;
+
+        table th {
+            background-color: #006400;
+            color: white;
         }
-        .activity p strong {
-            color: #d35400;
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
+
         footer {
             text-align: center;
             font-size: 0.9em;
@@ -63,77 +74,109 @@
 </head>
 <body>
 
-    <div class="container">
+    <header>
         <h1>2-Day Trip Itinerary - Jaipur</h1>
-        
+    </header>
+
+    <div class="container">
         <!-- Day 1 -->
         <div class="day">
-            <h2>Day 1</h2>
-            <div class="activity">
-                <h3>Hawa Mahal</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> The Hawa Mahal, or Palace of Winds, is a unique architectural marvel built in 1799, known for its honeycomb-like facade and intricate windows.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>City Palace</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> The City Palace is a grand palace complex built in the 18th century, showcasing the rich history and culture of Jaipur.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Jantar Mantar</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> An 18th-century astronomical observatory with intricate instruments for tracking celestial bodies.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Jal Mahal</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A palace built in the middle of Man Sagar Lake, Jal Mahal is a stunning architectural marvel.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Chokhi Dhani</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A cultural village experience showcasing Rajasthani traditions, crafts, and entertainment.</p>
-                <p><strong>Duration:</strong> 180 minutes</p>
-            </div>
+            <h2>Day 1 - 22 Oct, 2024</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jaipur City Palace</td>
+                        <td>Jaipur</td>
+                        <td>The City Palace is a grand complex that showcases the rich history and culture of Jaipur.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Amber Fort</td>
+                        <td>Jaipur</td>
+                        <td>A majestic fort known for its stunning architecture and scenic views.</td>
+                        <td>180</td>
+                    </tr>
+                    <tr>
+                        <td>Jantar Mantar</td>
+                        <td>Jaipur</td>
+                        <td>An astronomical observatory built in the 18th century with remarkable instruments.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Birla Temple</td>
+                        <td>Jaipur</td>
+                        <td>A beautiful temple dedicated to Lord Vishnu and Goddess Lakshmi, known for its white marble.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Chokhi Dhani</td>
+                        <td>Jaipur</td>
+                        <td>A cultural village offering a glimpse of traditional Rajasthani life and cuisine.</td>
+                        <td>120</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Day 2 -->
         <div class="day">
-            <h2>Day 2</h2>
-            <div class="activity">
-                <h3>Amber Fort</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A majestic fort perched on a hill, offering stunning views and glimpses into the rich history of Jaipur.</p>
-                <p><strong>Duration:</strong> 180 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Nahargarh Fort</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A majestic fort perched on a hill overlooking Jaipur, offering panoramic views and a glimpse into the city's rich history.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Albert Hall Museum</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A beautiful museum showcasing a diverse collection of art, artifacts, and sculptures.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Govind Devji Temple</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A revered Hindu temple dedicated to Lord Krishna, known for its intricate architecture and vibrant festivals.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Bapu Bazaar</h3>
-                <p><strong>City:</strong> Jaipur</p>
-                <p><strong>Description:</strong> A bustling market in Jaipur, known for its traditional Rajasthani handicrafts, textiles, and jewelry.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
+            <h2>Day 2 - 23 Oct, 2024</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nahargarh Fort</td>
+                        <td>Jaipur</td>
+                        <td>A fort that offers panoramic views of the Pink City and its surroundings.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Jal Mahal</td>
+                        <td>Jaipur</td>
+                        <td>A picturesque palace located in the middle of Man Sagar Lake.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Albert Hall Museum</td>
+                        <td>Jaipur</td>
+                        <td>A museum displaying a rich collection of artifacts and art pieces from Rajasthan.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Govind Devji Temple</td>
+                        <td>Jaipur</td>
+                        <td>A popular temple dedicated to Lord Krishna, known for its intricate architecture.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Bapu Bazaar</td>
+                        <td>Jaipur</td>
+                        <td>A vibrant market offering traditional handicrafts, textiles, and jewelry.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Rajasthani Cuisine at Laxmi Mishthan Bhandar</td>
+                        <td>Jaipur</td>
+                        <td>A renowned eatery famous for its authentic Rajasthani sweets and snacks.</td>
+                        <td>60</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>

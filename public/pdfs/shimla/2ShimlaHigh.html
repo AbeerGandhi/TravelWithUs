@@ -7,140 +7,165 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
             margin: 0;
-            padding: 20px;
-            color: #333;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        h1 {
+
+        header {
+            background-color: #006400;
+            color: white;
             text-align: center;
-            color: #2e8b57;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            padding: 20px 0;
         }
+
+        header h1 {
+            margin: 0;
+        }
+
         .container {
             max-width: 800px;
             margin: auto;
-            background-color: #ffffff;
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .day {
             margin-bottom: 30px;
         }
-        .day h2 {
-            color: #2e8b57;
-            border-bottom: 2px solid #2e8b57;
-            padding-bottom: 5px;
+
+        h2 {
+            color: #006400;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
             font-size: 1.8em;
         }
-        .activity {
-            margin-bottom: 15px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-left: 5px solid #2e8b57;
-            border-radius: 5px;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
         }
-        .activity h3 {
-            margin: 0;
-            color: #333;
-            font-size: 1.4em;
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
         }
-        .activity p {
-            margin: 5px 0;
+
+        table th {
+            background-color: #006400;
+            color: white;
         }
-        .activity p strong {
-            color: #2e8b57;
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
         footer {
             text-align: center;
             font-size: 0.9em;
-            color: #777;
+            color: #7f8c8d;
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <header>
         <h1>2-Day Trip Itinerary - Shimla</h1>
-        
+    </header>
+
+    <div class="container">
         <!-- Day 1 -->
         <div class="day">
-            <h2>Day 1 - 23 Oct, 2024</h2>
-            <div class="activity">
-                <h3>Jakhoo Hill</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> Jakhoo Hill is a popular tourist destination in Shimla, known for its Hanuman Temple and panoramic views.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>The Ridge</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> The Ridge is a pedestrianized promenade in Shimla, offering stunning views of the Himalayas.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Christ Church</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> A historic church built in 1836, offering stunning views of the Himalayas.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Mall Road</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> Mall Road is a bustling pedestrian street in Shimla, offering stunning views of the surrounding hills.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Scandal Point</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> A scenic viewpoint offering panoramic views of the Himalayas.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Indian Institute of Advanced Study</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> A former Viceroy's residence, now a renowned research institute.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Viceregal Lodge</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> The Viceregal Lodge, now a museum, was the summer residence of the British Viceroy of India.</p>
-                <p><strong>Duration:</strong> 60 minutes</p>
-            </div>
+            <h2>Day 1 - 22 Oct, 2024</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/300x200?text=The+Mall" alt="The Mall"></td>
+                        <td>Shimla</td>
+                        <td>The main street in Shimla, perfect for shopping, dining, and soaking in the views.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/300x200?text=Jakhoo+Temple" alt="Jakhoo Temple"></td>
+                        <td>Shimla</td>
+                        <td>A famous temple dedicated to Lord Hanuman, situated on Jakhoo Hill.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/300x200?text=Christ+Church" alt="Christ Church"></td>
+                        <td>Shimla</td>
+                        <td>An iconic church known for its beautiful architecture and serene ambiance.</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/300x200?text=Viceregal+Lodge" alt="Viceregal Lodge"></td>
+                        <td>Shimla</td>
+                        <td>The historic summer residence of the British Viceroy, now a museum.</td>
+                        <td>120</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- Day 2 -->
         <div class="day">
-            <h2>Day 2 - 24 Oct, 2024</h2>
-            <div class="activity">
-                <h3>Kufri</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> A popular hill station near Shimla, known for its stunning views and adventure activities.</p>
-                <p><strong>Duration:</strong> 180 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Himalayan Nature Park</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> A scenic park showcasing Himalayan flora and fauna, offering hiking trails and panoramic views.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Fagu</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> A picturesque village nestled in the Himalayas, Fagu offers stunning views and hiking trails.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
-            <div class="activity">
-                <h3>Naldehra</h3>
-                <p><strong>City:</strong> Shimla</p>
-                <p><strong>Description:</strong> A charming hill station known for its scenic beauty and apple orchards.</p>
-                <p><strong>Duration:</strong> 120 minutes</p>
-            </div>
+            <h2>Day 2 - 23 Oct, 2024</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>City</th>
+                        <th>Description</th>
+                        <th>Duration (minutes)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/300x200?text= Kufri" alt="Kufri"></td>
+                        <td>Kufri</td>
+                        <td>A popular hill station near Shimla known for its skiing and panoramic views.</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/300x200?text=Lakkar+Bazaar" alt="Lakkar Bazaar"></td>
+                        <td>Shimla</td>
+                        <td>A famous market known for its wooden handicrafts and souvenirs.</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/300x200?text=Summer+Hill" alt="Summer Hill"></td>
+                        <td>Shimla</td>
+                        <td>A scenic area perfect for leisurely walks amidst nature.</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://via.placeholder.com/300x200?text=Green+Valley" alt="Green Valley"></td>
+                        <td>Shimla</td>
+                        <td>A picturesque valley known for its lush greenery and stunning landscapes.</td>
+                        <td>60</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
     </div>
 
     <footer>
