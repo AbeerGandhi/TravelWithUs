@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Rishikesh.css';
 import { TravelCard } from "../../../components/locations/TravelCard";
-import { RishikeshImages } from "../../../media/rishikesh/RishikeshImages";
+import { RishikeshImages } from "../../../media/rishikesh/RishikeshImages"; // Update with actual import
 import PackCard from "../../../components/locations/PackCard";
-import { getDistance } from 'geolib'; // Import geolib for distance calculations
-import axios from 'axios'; // For API requests
+import { getDistance } from 'geolib';
+import axios from 'axios';
 import contactimg from "../../../media/contactus.png";
 import { Link } from "react-router-dom";
 
@@ -24,27 +24,72 @@ export const Rishikesh = () => {
     {
       placeName: "Rishikesh",
       tagline: "The Yoga Capital of the World",
-      desc: "Rishikesh, nestled in the foothills of the Himalayas, is a spiritual hub known for its yoga and meditation retreats. The sacred Ganges river and serene environment make it an ideal destination for relaxation and adventure.",
+      desc: "Rishikesh, located in the foothills of the Himalayas, is famous for its yoga and meditation centers. The serene atmosphere, scenic beauty, and spiritual significance make it a popular destination for travelers seeking peace and adventure.",
     },
   ];
 
   const packageInfo = {
     2: {
-      low: { img: RishikeshImages.dp1, location: "Ganga Aarti", price: "INR 500 - 1,000", pdf: "/pdfs/rishikesh/2daylowrishikesh.pdf" },
-      medium: { img: RishikeshImages.dp2, location: "River Rafting", price: "INR 1,000 - 2,500", pdf: "/pdfs/rishikesh/2daymediumrishikesh.pdf" },
-      high: { img: RishikeshImages.dp3, location: "Yoga Retreats", price: "INR 2,500 - 5,000", pdf: "/pdfs/rishikesh/2dayhighrishikesh.pdf" },
+        low: {
+            img: RishikeshImages.dp1,
+            location: "Low",
+            price: "INR 2,500 - 5,500",
+            pdf: "/pdfs/rishikesh/2daylowrishikesh.pdf",
+        },
+        medium: {
+            img: RishikeshImages.dp2,
+            location: "Medium",
+            price: "INR 5,500 - 12,000",
+            pdf: "/pdfs/rishikesh/2daymediumrishikesh.pdf",
+        },
+        high: {
+            img: RishikeshImages.dp3,
+            location: "High",
+            price: "INR 12,000 - 25,000",
+            pdf: "/pdfs/rishikesh/2dayhighrishikesh.pdf",
+        },
     },
     3: {
-      low: { img: RishikeshImages.dp1, location: "Ganga Aarti", price: "INR 500 - 1,000", pdf: "/pdfs/rishikesh/3daylowrishikesh.pdf" },
-      medium: { img: RishikeshImages.dp2, location: "River Rafting", price: "INR 1,000 - 2,500", pdf: "/pdfs/rishikesh/3daymediumrishikesh.pdf" },
-      high: { img: RishikeshImages.dp3, location: "Yoga Retreats", price: "INR 2,500 - 5,000", pdf: "/pdfs/rishikesh/3dayhighrishikesh.pdf" },
+        low: {
+            img: RishikeshImages.dp1,
+            location: "Low",
+            price: "INR 2,500 - 5,500",
+            pdf: "/pdfs/rishikesh/3daylowrishikesh.pdf",
+        },
+        medium: {
+            img: RishikeshImages.dp2,
+            location: "Medium",
+            price: "INR 5,500 - 12,000",
+            pdf: "/pdfs/rishikesh/3daymediumrishikesh.pdf",
+        },
+        high: {
+            img: RishikeshImages.dp3,
+            location: "High",
+            price: "INR 12,000 - 25,000",
+            pdf: "/pdfs/rishikesh/3dayhighrishikesh.pdf",
+        },
     },
     4: {
-      low: { img: RishikeshImages.dp1, location: "Ganga Aarti", price: "INR 500 - 1,000", pdf: "/pdfs/rishikesh/4daylowrishikesh.pdf" },
-      medium: { img: RishikeshImages.dp2, location: "River Rafting", price: "INR 1,000 - 2,500", pdf: "/pdfs/rishikesh/4daymediumrishikesh.pdf" },
-      high: { img: RishikeshImages.dp3, location: "Yoga Retreats", price: "INR 2,500 - 5,000", pdf: "/pdfs/rishikesh/4dayhighrishikesh.pdf" },
+        low: {
+            img: RishikeshImages.dp1,
+            location: "Low",
+            price: "INR 2,500 - 5,500",
+            pdf: "/pdfs/rishikesh/4daylowrishikesh.pdf",
+        },
+        medium: {
+            img: RishikeshImages.dp2,
+            location: "Medium",
+            price: "INR 5,500 - 12,000",
+            pdf: "/pdfs/rishikesh/4daymediumrishikesh.pdf",
+        },
+        high: {
+            img: RishikeshImages.dp3,
+            location: "High",
+            price: "INR 12,000 - 25,000",
+            pdf: "/pdfs/rishikesh/4dayhighrishikesh.pdf",
+        },
     },
-  };
+};
 
   const handleLocationChange = (e) => {
     setUserLocation(e.target.value);
@@ -52,11 +97,11 @@ export const Rishikesh = () => {
 
   const determineBudget = (distance) => {
     if (distance < 500) {
-      return { Budget: "Low (By Road)", CostRange: "(INR 500 - 1,000)" };
+      return { Budget: "Low (By Road)", CostRange: "(INR 2,500 - 5,500)" };
     } else if (distance < 1500) {
-      return { Budget: "Medium (By Train)", CostRange: "(INR 1,000 - 2,500)" };
+      return { Budget: "Medium (By Train)", CostRange: "(INR 5,500 - 12,000)" };
     } else {
-      return { Budget: "High (By Flight)", CostRange: "(INR 2,500 - 5,000)" };
+      return { Budget: "High (By Flight)", CostRange: "(INR 12,000 - 25,000)" };
     }
   };
 
@@ -65,20 +110,19 @@ export const Rishikesh = () => {
     setError(null);
 
     try {
-      // Call OpenCage API to get coordinates for the entered location
       const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${userLocation}&key=${API_KEY}`);
       const data = response.data;
 
       if (data.results.length > 0) {
-        const userCoords = data.results[0].geometry; // Extract coordinates from response
-        const rishikeshCoords = { latitude: 30.0861, longitude: 78.2676 }; // Coordinates for Rishikesh
+        const userCoords = data.results[0].geometry;
+        const rishikeshCoords = { latitude: 30.0855, longitude: 78.2922 }; // Coordinates for Rishikesh
 
         const calculatedDistance = getDistance(
           { latitude: userCoords.lat, longitude: userCoords.lng },
           rishikeshCoords
         );
 
-        setDistance(calculatedDistance / 1000); // Convert distance to kilometers
+        setDistance(calculatedDistance / 1000);
         setBudgetOptions(determineBudget(calculatedDistance / 1000));
         setSubmittedLocation(true);
       } else {
@@ -178,6 +222,7 @@ export const Rishikesh = () => {
                 img={pkg.img}
                 location={pkg.location}
                 price={pkg.price}
+                pdf={pkg.pdf}
               />
             ))}
           </div>
