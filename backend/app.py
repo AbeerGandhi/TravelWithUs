@@ -47,11 +47,11 @@ data_places = {
     ],
     "Climatic Condition": [
         "Tropical", "Cold", "Tropical", "Temperate", "Temperate",
-        "Cold", "Cold", "Tropical", "Tropical", "Temperate",
+        "Cold", "Cold", "Tropical", "Temperate", "Temperate",
         "Tropical", "Tropical", "Tropical", "Tropical",
         "Desert", "Cold", "Tropical", "Tropical", "Cold", "Tropical",
         "Tropical", "Tropical", "Tropical", "Tropical", "Tropical",
-        "Tropical", "Tropical", "Cold", "Cold", "Temperate",
+        "Tropical", "Temperate", "Cold", "Cold", "Temperate",
         "Temperate"
     ],
     "Latitude": [

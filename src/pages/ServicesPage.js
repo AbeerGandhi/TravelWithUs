@@ -73,6 +73,8 @@ export const ServicesPage = () => {
               <option value="Mountain">Mountain</option>
               <option value="Historical">Historical</option>
               <option value="Place of God">Place of God</option>
+              <option value="City Life">City Life</option>
+              <option value="Religious">Religious</option>
             </select>
           </div>
 
